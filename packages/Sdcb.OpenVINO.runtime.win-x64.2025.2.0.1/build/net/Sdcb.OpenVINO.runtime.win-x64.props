@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SdcbOpenVINODlls>$(MSBuildThisFileDirectory)..\..\runtimes</SdcbOpenVINODlls>
+  </PropertyGroup>
+  <ItemGroup Condition="$(TargetFrameworkVersion.StartsWith('v4')) Or $(TargetFramework.StartsWith('net4'))">
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\tbbbind_2_5.dll">
+      <Link>dll\win-x64\tbbbind_2_5.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\tbbmalloc_proxy.dll">
+      <Link>dll\win-x64\tbbmalloc_proxy.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\tbb12.dll">
+      <Link>dll\win-x64\tbb12.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\tbbmalloc.dll">
+      <Link>dll\win-x64\tbbmalloc.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_auto_plugin.dll">
+      <Link>dll\win-x64\openvino_auto_plugin.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_intel_cpu_plugin.dll">
+      <Link>dll\win-x64\openvino_intel_cpu_plugin.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_onnx_frontend.dll">
+      <Link>dll\win-x64\openvino_onnx_frontend.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_tensorflow_frontend.dll">
+      <Link>dll\win-x64\openvino_tensorflow_frontend.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_intel_npu_plugin.dll">
+      <Link>dll\win-x64\openvino_intel_npu_plugin.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_intel_gpu_plugin.dll">
+      <Link>dll\win-x64\openvino_intel_gpu_plugin.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\cache.json">
+      <Link>dll\win-x64\cache.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_tensorflow_lite_frontend.dll">
+      <Link>dll\win-x64\openvino_tensorflow_lite_frontend.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino.dll">
+      <Link>dll\win-x64\openvino.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_hetero_plugin.dll">
+      <Link>dll\win-x64\openvino_hetero_plugin.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_paddle_frontend.dll">
+      <Link>dll\win-x64\openvino_paddle_frontend.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_pytorch_frontend.dll">
+      <Link>dll\win-x64\openvino_pytorch_frontend.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_ir_frontend.dll">
+      <Link>dll\win-x64\openvino_ir_frontend.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_auto_batch_plugin.dll">
+      <Link>dll\win-x64\openvino_auto_batch_plugin.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SdcbOpenVINODlls)\win-x64\native\openvino_c.dll">
+      <Link>dll\win-x64\openvino_c.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

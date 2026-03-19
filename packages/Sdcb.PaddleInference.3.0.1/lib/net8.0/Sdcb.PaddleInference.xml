@@ -1,0 +1,1380 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sdcb.PaddleInference</name>
+    </assembly>
+    <members>
+        <member name="T:Sdcb.PaddleInference.Native.PaddleInferenceLibLoader">
+            <summary>
+            Loads PaddleInference native library and dependencies.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleInferenceLibLoader.Init">
+            <summary>
+            Initializes the PaddleInference library loader.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleInferenceLibLoader.PaddleImportResolver(System.String,System.Reflection.Assembly,System.Nullable{System.Runtime.InteropServices.DllImportSearchPath})">
+            <summary>
+            Resolves PaddleInference library and its dependencies.
+            </summary>
+            <param name="libraryName">Name of the library to resolve.</param>
+            <param name="assembly">Assembly of the library to resolve.</param>
+            <param name="searchPath">Search path for the library to resolve.</param>
+            <returns>A handle to the library if found; otherwise, null.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleInferenceLibLoader.LoadPaddleDependencies(System.String,System.Reflection.Assembly,System.Nullable{System.Runtime.InteropServices.DllImportSearchPath},System.String[])">
+            <summary>
+            Loads PaddleInference library and its dependencies.
+            </summary>
+            <param name="libraryName">Name of the library to load.</param>
+            <param name="assembly">Assembly to load the library from.</param>
+            <param name="searchPath">Search path for the library to load.</param>
+            <param name="knownDependencies">List of known dependencies to load.</param>
+        </member>
+        <member name="T:Sdcb.PaddleInference.Native.PaddleNative">
+            <summary>
+            This class provides native methods to interact with the PaddleInference C library.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.Native.PaddleNative.PaddleInferenceCLib">
+            <summary>
+            Path of the Paddle Inference C library.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigCreate">
+            <summary>Create a paddle config</summary>
+            <returns>new config.(C API type: PD_Config*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigDestroy(System.IntPtr)">
+            <summary>Destroy the paddle config</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetModel(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Set the combined model with two specific paths for program and parameters.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="prog_file_path">(C API type: byte*) model file path of the combined model.</param>
+            <param name="params_file_path">(C API type: byte*) params file path of the combined model.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetProgFile(System.IntPtr,System.IntPtr)">
+            <summary>Set the model file path of a combined model.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="prog_file_path">(C API type: byte*) model file path.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetParamsFile(System.IntPtr,System.IntPtr)">
+            <summary>Set the params file path of a combined model.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="params_file_path">(C API type: byte*) params file path.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetOptimCacheDir(System.IntPtr,System.IntPtr)">
+            <summary>Set the path of optimization cache directory.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="opt_cache_dir">(C API type: byte*) the path of optimization cache directory.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetModelDir(System.IntPtr,System.IntPtr)">
+            <summary>Set the no-combined model dir path.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="model_dir">(C API type: byte*) model dir path.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigGetModelDir(System.IntPtr)">
+            <summary>Get the model directory path.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>The model directory path.(C API type: byte*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigGetProgFile(System.IntPtr)">
+            <summary>Get the program file path.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>The program file path.(C API type: byte*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigGetParamsFile(System.IntPtr)">
+            <summary>Get the params file path.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>The params file path.(C API type: byte*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigDisableFCPadding(System.IntPtr)">
+            <summary>Turn off FC Padding.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigUseFcPadding(System.IntPtr)">
+            <summary>A boolean state telling whether fc padding is used.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether fc padding is used.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableUseGpu(System.IntPtr,System.UInt64,System.Int32,Sdcb.PaddleInference.PaddlePrecision)">
+            <summary>Turn on GPU.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="memory_pool_init_size_mb">initial size of the GPU memory pool in MB.</param>
+            <param name="device_id">device_id the GPU card to use.</param>
+            <param name="precision_mode">(C API type: PD_PrecisionType) the precision used in Paddle-GPU inference.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigDisableGpu(System.IntPtr)">
+            <summary>Turn off GPU.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigUseGpu(System.IntPtr)">
+            <summary>A boolean state telling whether the GPU is turned on.</summary>
+            <param name="pd_config">(C API type: PD_Config*) </param>
+            <returns>Whether the GPU is turned on.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableONNXRuntime(System.IntPtr)">
+            <summary>Turn on ONNXRuntime.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigDisableONNXRuntime(System.IntPtr)">
+            <summary>Turn off ONNXRuntime.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigONNXRuntimeEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether the ONNXRuntime is turned on.</summary>
+            <param name="pd_config">(C API type: PD_Config*) </param>
+            <returns>Whether the ONNXRuntime is turned on.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableORTOptimization(System.IntPtr)">
+            <summary>Turn on ONNXRuntime Optimization.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableXpu(System.IntPtr,System.Int32,System.SByte,System.SByte,System.IntPtr,System.IntPtr,System.SByte,System.SByte)">
+            <summary>Turn on XPU.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="l3_workspace_size">The size of the video memory allocated by the l3         cache, the maximum is 16M.</param>
+            <param name="locked">(C API type: PD_Bool) Whether the allocated L3 cache can be locked. If false,       it means that the L3 cache is not locked, and the allocated L3       cache can be shared by multiple models, and multiple models       sharing the L3 cache will be executed sequentially on the card.</param>
+            <param name="autotune">(C API type: PD_Bool) Whether to autotune the conv operator in the model. If       true, when the conv operator of a certain dimension is executed       for the first time, it will automatically search for a better       algorithm to improve the performance of subsequent conv operators       of the same dimension.</param>
+            <param name="autotune_file">(C API type: byte*) Specify the path of the autotune file. If       autotune_file is specified, the algorithm specified in the       file will be used and autotune will not be performed again.</param>
+            <param name="precision">(C API type: byte*) Calculation accuracy of multi_encoder</param>
+            <param name="adaptive_seqlen">(C API type: PD_Bool) Is the input of multi_encoder variable length</param>
+            <param name="enable_multi_stream">(C API type: PD_Bool) Whether to enable the multi stream of xpu.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigUseXpu(System.IntPtr)">
+            <summary>A boolean state telling whether the XPU is turned on.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether the XPU is turned on.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigGpuDeviceId(System.IntPtr)">
+            <summary>Get the GPU device id.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>The GPU device id.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigXpuDeviceId(System.IntPtr)">
+            <summary>Get the XPU device id.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>The XPU device id.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableCustomDevice(System.IntPtr,System.IntPtr,System.Int32,Sdcb.PaddleInference.PaddlePrecision)">
+            <summary>Turn on custom device.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="device_type">(C API type: byte*) device type</param>
+            <param name="device_id">device_id the custom device card to use.</param>
+            <param name="precision">(C API type: PD_PrecisionType) </param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigUseCustomDevice(System.IntPtr)">
+            <summary>A boolean state telling whether the custom device is turned on.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether the custom device is turned on.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigCustomDeviceId(System.IntPtr)">
+            <summary>Get the custom device id.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>int The custom device id.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigCustomDeviceType(System.IntPtr)">
+            <summary>Get the custom device type.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>string The custom device type.(C API type: byte*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigMemoryPoolInitSizeMb(System.IntPtr)">
+            <summary>Get the initial size in MB of the GPU memory pool.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>The initial size in MB of the GPU memory pool.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigFractionOfGpuMemoryForPool(System.IntPtr)">
+            <summary>Get the proportion of the initial memory pool size compared to the device.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>The proportion of the initial memory pool size.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableCudnn(System.IntPtr)">
+            <summary>Turn on CUDNN.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigCudnnEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether to use CUDNN.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether to use CUDNN.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSwitchIrOptim(System.IntPtr,System.SByte)">
+            <summary>Control whether to perform IR graph optimization. If turned off, the AnalysisConfig will act just like a NativeConfig.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="x">(C API type: PD_Bool) Whether the ir graph optimization is activated.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigIrOptim(System.IntPtr)">
+            <summary>A boolean state telling whether the ir graph optimization is activated.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether to use ir graph optimization.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableTensorRtEngine(System.IntPtr,System.Int64,System.Int32,System.Int32,Sdcb.PaddleInference.PaddlePrecision,System.SByte,System.SByte)">
+            <summary>Turn on the TensorRT engine. The TensorRT engine will accelerate some subgraphs in the original Fluid computation graph. In some models such as resnet50, GoogleNet and so on, it gains significant performance acceleration.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="workspace_size">The memory size(in byte) used for TensorRT workspace.</param>
+            <param name="max_batch_size">The maximum batch size of this prediction task, better set as small as possible for less performance loss.</param>
+            <param name="min_subgraph_size">The minimum TensorRT subgraph size needed, if a subgraph is smaller than this, it will not be transferred to TensorRT engine.</param>
+            <param name="precision">(C API type: PD_PrecisionType) The precision used in TensorRT.</param>
+            <param name="use_static">(C API type: PD_Bool) Serialize optimization information to disk for reusing.</param>
+            <param name="use_calib_mode">(C API type: PD_Bool) Use TRT int8 calibration(post training quantization).</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigTensorRtEngineEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether the TensorRT engine is used.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether the TensorRT engine is used.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetTrtDynamicShapeInfo(System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr,System.SByte)">
+            <summary>Set min, max, opt shape for TensorRT Dynamic shape mode.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="tensor_num">The number of the subgraph input.</param>
+            <param name="tensor_name">(C API type: IntPtr*) The name of every subgraph input.</param>
+            <param name="shapes_num">(C API type: nint*) The shape size of every subgraph input.</param>
+            <param name="min_shape">(C API type: IntPtr*) The min input shape of every subgraph input.</param>
+            <param name="max_shape">(C API type: IntPtr*) The max input shape of every subgraph input.</param>
+            <param name="optim_shape">(C API type: IntPtr*) The opt input shape of every subgraph input.</param>
+            <param name="disable_trt_plugin_fp16">(C API type: PD_Bool) Setting this parameter to true means that TRT plugin will not run fp16.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigTensorRtDynamicShapeEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether the trt dynamic_shape is used.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableTunedTensorRtDynamicShape(System.IntPtr,System.IntPtr,System.SByte)">
+            <summary>Enable tuned tensorrt dynamic shape.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="shape_range_info_path">(C API type: byte*) the path to shape_info file got in CollectShapeInfo mode.</param>
+            <param name="allow_build_at_runtime">(C API type: PD_Bool) allow build trt engine at runtime.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigTunedTensorRtDynamicShape(System.IntPtr)">
+            <summary>A boolean state telling whether to use tuned tensorrt dynamic shape.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigTrtAllowBuildAtRuntime(System.IntPtr)">
+            <summary>A boolean state telling whether to allow building trt engine at runtime.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigCollectShapeRangeInfo(System.IntPtr,System.IntPtr)">
+            <summary>Collect shape info of all tensors in compute graph.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="shape_range_info_path">(C API type: byte*) the path to save shape info.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigShapeRangeInfoPath(System.IntPtr)">
+            <summary>the shape info path in CollectShapeInfo mode. Attention, Please release the string manually.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>(C API type: byte*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigShapeRangeInfoCollected(System.IntPtr)">
+            <summary>A boolean state telling whether to collect shape info.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigDisableTensorRtOPs(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Prevent ops running in Paddle-TRT NOTE: just experimental, not an official stable API, easy to be broken.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="ops_num">ops number</param>
+            <param name="ops_name">(C API type: IntPtr*) ops name</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableVarseqlen(System.IntPtr)">
+            <summary>Replace some TensorRT plugins to TensorRT OSS( https://github.com/NVIDIA/TensorRT), with which some models's inference may be more high-performance. Libnvinfer_plugin.so greater than V7.2.1 is needed.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigTensorRtOssEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether to use the TensorRT OSS.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether to use the TensorRT OSS.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableTensorRtDla(System.IntPtr,System.Int32)">
+            <summary>Enable TensorRT DLA</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="dla_core">ID of DLACore, which should be 0, 1,        ..., IBuilder.getNbDLACores() - 1</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigTensorRtDlaEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether to use the TensorRT DLA.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether to use the TensorRT DLA.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSwitchIrDebug(System.IntPtr,System.SByte)">
+            <summary>Control whether to debug IR graph analysis phase. This will generate DOT files for visualizing the computation graph after each analysis pass applied.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="x">(C API type: PD_Bool) whether to debug IR graph analysis phase.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableMKLDNN(System.IntPtr)">
+            <summary>Turn on OneDNN.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetMkldnnCacheCapacity(System.IntPtr,System.Int32)">
+            <summary>Set the cache capacity of different input shapes for OneDNN. Default value 0 means not caching any shape. Please see MKL-DNN Data Caching Design Document: https://github.com/PaddlePaddle/FluidDoc/blob/develop/doc/fluid/design/mkldnn/caching/caching.md</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="capacity">The cache capacity.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigMkldnnEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether to use the OneDNN.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether to use the OneDNN.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetCpuMathLibraryNumThreads(System.IntPtr,System.Int32)">
+            <summary>Set the number of cpu math library threads.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="cpu_math_library_num_threads">The number of cpu math library threads.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigGetCpuMathLibraryNumThreads(System.IntPtr)">
+            <summary>An int state telling how many threads are used in the CPU math library.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>The number of threads used in the CPU math library.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetMkldnnOp(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Specify the operator type list to use OneDNN acceleration.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="ops_num">The number of operator type list.</param>
+            <param name="op_list">(C API type: IntPtr*) The name of operator type list.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableMkldnnBfloat16(System.IntPtr)">
+            <summary>Turn on OneDNN bfloat16.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigMkldnnBfloat16Enabled(System.IntPtr)">
+            <summary>A boolean state telling whether to use the OneDNN Bfloat16.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether to use the OneDNN Bfloat16.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetBfloat16Op(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Specify the operator type list to use Bfloat16 acceleration.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="ops_num">The number of operator type list.</param>
+            <param name="op_list">(C API type: IntPtr*) The name of operator type list.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableMkldnnInt8(System.IntPtr)">
+            <summary>Turn on OneDNN int8.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigMkldnnInt8Enabled(System.IntPtr)">
+            <summary>A boolean state telling whether to use the OneDNN int8.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether to use the OneDNN int8.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableGpuMultiStream(System.IntPtr)">
+            <summary>Enable the GPU multi-computing stream feature. NOTE: The current behavior of this interface is to bind the computation stream to the thread, and this behavior may be changed in the future.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigThreadLocalStreamEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether the thread local CUDA stream is enabled.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether the thread local CUDA stream is enabled.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetExecStream(System.IntPtr,System.IntPtr)">
+            <summary>Set execution stream. If not set a stream will be created internally.</summary>
+            <param name="pd_config">(C API type: PD_Config*) </param>
+            <param name="stream">(C API type: void*) </param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetModelBuffer(System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Specify the memory buffer of program and parameter. Used when model and params are loaded directly from memory.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="prog_buffer">(C API type: byte*) The memory buffer of program.</param>
+            <param name="prog_buffer_size">The size of the model data.</param>
+            <param name="params_buffer">(C API type: byte*) The memory buffer of the combined parameters file.</param>
+            <param name="params_buffer_size">The size of the combined parameters data.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigModelFromMemory(System.IntPtr)">
+            <summary>A boolean state telling whether the model is set from the CPU memory.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether model and params are loaded directly from memory.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableMemoryOptim(System.IntPtr,System.SByte)">
+            <summary>Turn on memory optimize NOTE still in development.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="x">(C API type: PD_Bool) </param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigMemoryOptimEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether the memory optimization is activated.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether the memory optimization is activated.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableProfile(System.IntPtr)">
+            <summary>Turn on profiling report. If not turned on, no profiling report will be generated.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigProfileEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether the profiler is activated.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>bool Whether the profiler is activated.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigDisableGlogInfo(System.IntPtr)">
+            <summary>Mute all logs in Paddle inference.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigGlogInfoDisabled(System.IntPtr)">
+            <summary>A boolean state telling whether logs in Paddle inference are muted.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether logs in Paddle inference are muted.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSetInvalid(System.IntPtr)">
+            <summary>Set the Config to be invalid. This is to ensure that an Config can only be used in one Predictor.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigIsValid(System.IntPtr)">
+            <summary>A boolean state telling whether the Config is valid.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether the Config is valid.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigDeletePass(System.IntPtr,System.IntPtr)">
+            <summary>Delete all passes that has a certain type 'pass'.</summary>
+            <param name="pd_config">(C API type: PD_Config*) </param>
+            <param name="pass">(C API type: byte*) the certain pass type to be deleted.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigInsertPass(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Insert a pass to a specific position</summary>
+            <param name="pd_config">(C API type: PD_Config*) </param>
+            <param name="idx">the position to insert.</param>
+            <param name="pass">(C API type: byte*) the new pass.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigAppendPass(System.IntPtr,System.IntPtr)">
+            <summary>Append a pass to the end of the passes</summary>
+            <param name="pd_config">(C API type: PD_Config*) </param>
+            <param name="pass">(C API type: byte*) the new pass.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigAllPasses(System.IntPtr)">
+            <summary>Get information of passes.</summary>
+            <param name="pd_config">(C API type: PD_Config*) </param>
+            <returns>Return list of the passes.(C API type: PD_OneDimArrayCstr*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigSummary(System.IntPtr)">
+            <summary>Get information of config. Attention, Please release the string manually.</summary>
+            <param name="pd_config">(C API type: PD_Config*) </param>
+            <returns>Return config info.(C API type: PD_Cstr*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableNewExecutor(System.IntPtr,System.SByte)">
+            <summary>A boolean state telling whether to use new executor.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="x">(C API type: PD_Bool) enable new executor or not</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigNewExecutorEnabled(System.IntPtr)">
+            <summary>A boolean state telling whether the new executor is enabled.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether new executor is enabled</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableNewIR(System.IntPtr,System.SByte)">
+            <summary>A boolean state telling whether to use new IR.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="x">(C API type: PD_Bool) enable new IR or not</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigNewIREnabled(System.IntPtr)">
+            <summary>A boolean state telling whether the new IR is enabled.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <returns>Whether new IR is enabled</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigUseOptimizedModel(System.IntPtr,System.SByte)">
+            <summary>Control whether to use optimized model to inference.</summary>
+            <param name="pd_config">(C API type: PD_Config*) config</param>
+            <param name="x">(C API type: PD_Bool) whether to use optimized model</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorCreate(System.IntPtr)">
+            <summary>Create a new Predictor</summary>
+            <param name="pd_config">(C API type: PD_Config*) </param>
+            <returns>new predictor.(C API type: PD_Predictor*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorClone(System.IntPtr)">
+            <summary>Clone a new Predictor</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <returns>new predictor.(C API type: PD_Predictor*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorGetInputNames(System.IntPtr)">
+            <summary>Get the input names</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <returns>input names(C API type: PD_OneDimArrayCstr*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorGetInputInfos(System.IntPtr)">
+            <summary>Get the input infos(name/shape/dtype)</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <returns>input infos(name/shape/dtype)(C API type: PD_IOInfos*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorGetOutputNames(System.IntPtr)">
+            <summary>Get the output names</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <returns>output names(C API type: PD_OneDimArrayCstr*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorGetOutputInfos(System.IntPtr)">
+            <summary>Get the output infos(name/shape/dtype)</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <returns>output infos(name/shape/dtype)(C API type: PD_IOInfos*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorGetInputNum(System.IntPtr)">
+            <summary>Get the input number</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <returns>input number</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorGetOutputNum(System.IntPtr)">
+            <summary>Get the output number</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <returns>output number</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorGetInputHandle(System.IntPtr,System.IntPtr)">
+            <summary>Get the Input Tensor object</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <param name="name">(C API type: byte*) input name</param>
+            <returns>input tensor(C API type: PD_Tensor*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorGetOutputHandle(System.IntPtr,System.IntPtr)">
+            <summary>Get the Output Tensor object</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <param name="name">(C API type: byte*) output name</param>
+            <returns>output tensor(C API type: PD_Tensor*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorRun(System.IntPtr)">
+            <summary>Run the prediction engine</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <returns>Whether the function executed successfully</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorClearIntermediateTensor(System.IntPtr)">
+            <summary>Clear the intermediate tensors of the predictor</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorTryShrinkMemory(System.IntPtr)">
+            <summary>Release all tmp tensor to compress the size of the memory pool. The memory pool is considered to be composed of a list of chunks, if the chunk is not occupied, it can be released.</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+            <returns>Number of bytes released. It may be smaller than the actual released memory, because part of the memory is not managed by the MemoryPool.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_PredictorDestroy(System.IntPtr)">
+            <summary>Destroy a predictor object</summary>
+            <param name="pd_predictor">(C API type: PD_Predictor*) predictor</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_GetVersion">
+            <summary>Get version info.</summary>
+            <returns>version(C API type: byte*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorDestroy(System.IntPtr)">
+            <summary>Destroy the paddle tensor</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorReshape(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Reset the shape of the tensor. Generally it's only used for the input tensor. Reshape must be called before calling PD_TensorMutableData*() or PD_TensorCopyFromCpu*()</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="shape_size">The size of shape.</param>
+            <param name="shape">(C API type: int*) The shape to set.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorMutableDataFloat(System.IntPtr,Sdcb.PaddleInference.PaddleMemoryPlace)">
+            <summary>Get the memory pointer in CPU or GPU with 'float' data type. Please Reshape the tensor first before call this. It's usually used to get input data pointer.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="place">(C API type: PD_PlaceType) The place of the tensor.</param>
+            <returns>Memory pointer of pd_tensor(C API type: float*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorMutableDataInt64(System.IntPtr,Sdcb.PaddleInference.PaddleMemoryPlace)">
+            <summary>Get the memory pointer in CPU or GPU with 'int64_t' data type. Please Reshape the tensor first before call this. It's usually used to get input data pointer.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="place">(C API type: PD_PlaceType) The place of the tensor.</param>
+            <returns>Memory pointer of pd_tensor(C API type: long*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorMutableDataInt32(System.IntPtr,Sdcb.PaddleInference.PaddleMemoryPlace)">
+            <summary>Get the memory pointer in CPU or GPU with 'int32_t' data type. Please Reshape the tensor first before call this. It's usually used to get input data pointer.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="place">(C API type: PD_PlaceType) The place of the tensor.</param>
+            <returns>Memory pointer of pd_tensor(C API type: int*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorMutableDataUint8(System.IntPtr,Sdcb.PaddleInference.PaddleMemoryPlace)">
+            <summary>Get the memory pointer in CPU or GPU with 'uint8_t' data type. Please Reshape the tensor first before call this. It's usually used to get input data pointer.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="place">(C API type: PD_PlaceType) The place of the tensor.</param>
+            <returns>Memory pointer of pd_tensor(C API type: uint8_t*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorMutableDataInt8(System.IntPtr,Sdcb.PaddleInference.PaddleMemoryPlace)">
+            <summary>Get the memory pointer in CPU or GPU with 'int8_t' data type. Please Reshape the tensor first before call this. It's usually used to get input data pointer.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="place">(C API type: PD_PlaceType) The place of the tensor.</param>
+            <returns>Memory pointer of pd_tensor(C API type: int8_t*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorDataFloat(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Get the memory pointer directly. It's usually used to get the output data pointer.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="place">(C API type: PD_PlaceType*) To get the device type of the tensor.</param>
+            <param name="size">(C API type: int*) To get the data size of the tensor.</param>
+            <returns>The tensor data buffer pointer.(C API type: float*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorDataInt64(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Get the memory pointer directly. It's usually used to get the output data pointer.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="place">(C API type: PD_PlaceType*) To get the device type of the tensor.</param>
+            <param name="size">(C API type: int*) To get the data size of the tensor.</param>
+            <returns>The tensor data buffer pointer.(C API type: long*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorDataInt32(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Get the memory pointer directly. It's usually used to get the output data pointer.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="place">(C API type: PD_PlaceType*) To get the device type of the tensor.</param>
+            <param name="size">(C API type: int*) To get the data size of the tensor.</param>
+            <returns>The tensor data buffer pointer.(C API type: int*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorDataUint8(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Get the memory pointer directly. It's usually used to get the output data pointer.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="place">(C API type: PD_PlaceType*) To get the device type of the tensor.</param>
+            <param name="size">(C API type: int*) To get the data size of the tensor.</param>
+            <returns>The tensor data buffer pointer.(C API type: uint8_t*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorDataInt8(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>Get the memory pointer directly. It's usually used to get the output data pointer.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="place">(C API type: PD_PlaceType*) To get the device type of the tensor.</param>
+            <param name="size">(C API type: int*) To get the data size of the tensor.</param>
+            <returns>The tensor data buffer pointer.(C API type: int8_t*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorCopyFromCpuFloat(System.IntPtr,System.IntPtr)">
+            <summary>Copy the host memory to tensor data. It's usually used to set the input tensor data.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="data">(C API type: float*) The pointer of the data, from which the tensor will copy.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorCopyFromCpuInt64(System.IntPtr,System.IntPtr)">
+            <summary>Copy the host memory to tensor data. It's usually used to set the input tensor data.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="data">(C API type: long*) The pointer of the data, from which the tensor will copy.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorCopyFromCpuInt32(System.IntPtr,System.IntPtr)">
+            <summary>Copy the host memory to tensor data. It's usually used to set the input tensor data.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="data">(C API type: int*) The pointer of the data, from which the tensor will copy.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorCopyFromCpuUint8(System.IntPtr,System.IntPtr)">
+            <summary>Copy the host memory to tensor data. It's usually used to set the input tensor data.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="data">(C API type: uint8_t*) The pointer of the data, from which the tensor will copy.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorCopyFromCpuInt8(System.IntPtr,System.IntPtr)">
+            <summary>Copy the host memory to tensor data. It's usually used to set the input tensor data.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="data">(C API type: int8_t*) The pointer of the data, from which the tensor will copy.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorCopyToCpuFloat(System.IntPtr,System.IntPtr)">
+            <summary>Copy the tensor data to the host memory. It's usually used to get the output tensor data.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="data">(C API type: float*) The tensor will copy the data to the address.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorCopyToCpuInt64(System.IntPtr,System.IntPtr)">
+            <summary>Copy the tensor data to the host memory. It's usually used to get the output tensor data.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="data">(C API type: long*) The tensor will copy the data to the address.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorCopyToCpuInt32(System.IntPtr,System.IntPtr)">
+            <summary>Copy the tensor data to the host memory. It's usually used to get the output tensor data.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="data">(C API type: int*) The tensor will copy the data to the address.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorCopyToCpuUint8(System.IntPtr,System.IntPtr)">
+            <summary>Copy the tensor data to the host memory. It's usually used to get the output tensor data.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="data">(C API type: uint8_t*) The tensor will copy the data to the address.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorCopyToCpuInt8(System.IntPtr,System.IntPtr)">
+            <summary>Copy the tensor data to the host memory. It's usually used to get the output tensor data.</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="data">(C API type: int8_t*) The tensor will copy the data to the address.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorGetShape(System.IntPtr)">
+            <summary>Get the tensor shape</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <returns>The tensor shape.(C API type: PD_OneDimArrayInt32*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorSetLod(System.IntPtr,System.IntPtr)">
+            <summary>Set the tensor lod information</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <param name="lod">(C API type: PD_TwoDimArraySize*) lod information.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorGetLod(System.IntPtr)">
+            <summary>Get the tensor lod information</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <returns>the lod information.(C API type: PD_TwoDimArraySize*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorGetName(System.IntPtr)">
+            <summary>Get the tensor name</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <returns>the tensor name.(C API type: byte*)</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TensorGetDataType(System.IntPtr)">
+            <summary>Get the tensor data type</summary>
+            <param name="pd_tensor">(C API type: PD_Tensor*) tensor.</param>
+            <returns>the tensor data type.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_OneDimArrayInt32Destroy(System.IntPtr)">
+            <summary>Destroy the PD_OneDimArrayInt32 object pointed to by the pointer.</summary>
+            <param name="array">(C API type: PD_OneDimArrayInt32*) pointer to the PD_OneDimArrayInt32 object.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_OneDimArrayInt64Destroy(System.IntPtr)">
+            <summary>Destroy the PD_OneDimArrayInt64 object pointed to by the pointer.</summary>
+            <param name="array">(C API type: PD_OneDimArrayInt64*) pointer to the PD_OneDimArrayInt64 object.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_OneDimArrayCstrDestroy(System.IntPtr)">
+            <summary>Destroy the PD_OneDimArrayCstr object pointed to by the pointer.</summary>
+            <param name="array">(C API type: PD_OneDimArrayCstr*) pointer to the PD_OneDimArrayCstr object.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_OneDimArraySizeDestroy(System.IntPtr)">
+            <summary>Destroy the PD_OneDimArraySize object pointed to by the pointer.</summary>
+            <param name="array">(C API type: PD_OneDimArraySize*) pointer to the PD_OneDimArraySize object.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_TwoDimArraySizeDestroy(System.IntPtr)">
+            <summary>Destroy the PD_TwoDimArraySize object pointed to by the pointer.</summary>
+            <param name="array">(C API type: PD_TwoDimArraySize*) pointer to the PD_TwoDimArraySize object.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_CstrDestroy(System.IntPtr)">
+            <summary>Destroy the PD_Cstr object pointed to by the pointer. NOTE: if input string is empty, the return PD_Cstr's size is 0 and data is NULL.</summary>
+            <param name="cstr">(C API type: PD_Cstr*) pointer to the PD_Cstr object.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_IOInfoDestroy(System.IntPtr)">
+            <summary>Destroy the PD_IOInfo object pointed to by the pointer.</summary>
+            <param name="io_info">(C API type: PD_IOInfo*) </param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_IOInfosDestroy(System.IntPtr)">
+            <summary>Destroy the PD_IOInfos object pointed to by the pointer.</summary>
+            <param name="io_infos">(C API type: PD_IOInfos*) </param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigEnableUseGpu(System.IntPtr,System.UInt64,System.Int32)">
+            <summary>Turn on GPU, note: this api is only available when version &lt; 2.5.0</summary>
+            <param name="pd_config">(C API type: PD_Config*) </param>
+            <param name="memory_pool_init_size_mb">initial size of the GPU memory pool in MB.</param>
+            <param name="device_id">device_id the GPU card to use.</param>
+        </member>
+        <member name="T:Sdcb.PaddleInference.PaddleConfig">
+            <summary>
+            Provides a configuration for Paddle Inference.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sdcb.PaddleInference.PaddleConfig"/> class.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sdcb.PaddleInference.PaddleConfig"/> class.
+            </summary>
+            <param name="configPointer">A pointer to a paddle config object</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.FromModelDir(System.String)">
+            <summary>
+            Returns a PaddleConfig instance from the given model directory.
+            </summary>
+            <param name="modelDir">The path to the directory containing the model files.</param>
+            <returns>A new instance of PaddleConfig.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.FromModelFiles(System.String,System.String)">
+            <summary>
+            Returns a PaddleConfig instance from paddle model files.
+            </summary>
+            <param name="programPath">Path of the PaddlePaddle model program file.</param>
+            <param name="paramsPath">Path of the PaddlePaddle model parameter file.</param>
+            <returns>A PaddleConfig instance.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.FromMemoryModel(System.Byte[],System.Byte[])">
+            <summary>
+            Creates the <see cref="T:Sdcb.PaddleInference.PaddleConfig"/> object from in-memory program data.
+            </summary>
+            <param name="programBuffer">In-memory program data.</param>
+            <param name="paramsBuffer">In-memory parameter data.</param>
+            <returns>The <see cref="T:Sdcb.PaddleInference.PaddleConfig"/> object.</returns>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleConfig.PaddleEncoding">
+            <summary>
+            Gets the encoding used by Paddle Inference.
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.Version">
+            <summary>Get version info.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.UnsafeGetHandle">
+            <summary>
+            Returns a pointer to the underlying unmanaged object handle.
+            </summary>
+            <returns>An unmanaged object handle.</returns>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.GLogEnabled">
+            <summary>A boolean state telling whether logs in Paddle inference are enabled.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.MemoryOptimized">
+            <summary>A boolean state telling whether the memory optimization is activated.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.IsMemoryModel">
+            <summary>A boolean state telling whether the model is set from the CPU memory.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.MkldnnEnabled">
+            <summary>A boolean state telling whether to use the MKLDNN.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.CudnnEnabled">
+            <summary>A boolean state telling whether to use CUDNN.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.MkldnnCacheCapacity">
+            <summary>Set the cache capacity of different input shapes for MKLDNN. Default value 0 means not caching any shape.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.OnnxEnabled">
+            <summary>
+            Gets or sets a bool indicating whether ONNX Runtime is enabled.
+            </summary>
+            <remarks>
+            If true, ONNX Runtime is enabled, otherwise disabled.
+            </remarks>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.EnableOnnxOptimization">
+            <summary>
+            Enable ONNX Runtime optimization.
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.ProfileEnabled">
+            <summary>Turn on profiling report. If not turned on, no profiling report will be generated.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.UseGpu">
+            <summary>A boolean state telling whether the GPU is turned on.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.GpuDeviceId">
+            <summary>Get the GPU device id.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.InitialGpuMemorySizeMB">
+            <summary>Get the initial size in MB of the GPU memory pool.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.FractionOfGpuMemoryForPool">
+            <summary>Get the proportion of the initial memory pool size compared to the device.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.EnableTensorRtEngine(System.Int32,System.Int32,System.Int32,Sdcb.PaddleInference.PaddlePrecision,System.Boolean,System.Boolean)">
+            <param name="workspaceSize">The memory size(in byte) used for TensorRT workspace.</param>
+            <param name="maxBatchSize">The maximum batch size of this prediction task, better set as small as possible for less performance loss.</param>
+            <param name="minSubgraphSize">Paddle-TRT is running under subgraph, Paddle-TRT will only been enabled when subgraph node count > min_subgraph_size to avoid performance loss</param>
+            <param name="precision">The precision used in TensorRT.</param>
+            <param name="useStatic">Serialize optimization information to disk for reusing.</param>
+            <param name="useCalibMode">Use TRT int8 calibration(post training quantization)</param>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.TensorRtEngineEnabled">
+            <summary>A boolean state telling whether the TensorRT engine is used.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.TensorRtDynamicShapeEnabled">
+            <summary>A boolean state telling whether the trt dynamic_shape is used.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.TensorRtDlaEnabled">
+            <summary>A boolean state telling whether to use the TensorRT DLA.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.CollectShapeRangeInfo(System.String)">
+            <summary>Collect shape info of all tensors in compute graph.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.ShapeRangeInfoCollected">
+            <summary>A boolean state telling whether to collect shape info.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.EnableTunedTensorRtDynamicShape(System.String,System.Boolean)">
+            <summary>Enable tuned tensorrt dynamic shape.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.TunedTensorRtDynamicShape">
+            <summary>A boolean state telling whether to use tuned tensorrt dynamic shape.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.SetOptimCacheDir(System.String)">
+            <summary>Set the path of optimization cache directory.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.SetTrtDynamicShapeInfo(System.Collections.Generic.Dictionary{System.String,Sdcb.PaddleInference.TensorRt.TensorRtDynamicShapeGroup})">
+            <summary>Set min, max, opt shape for TensorRT Dynamic shape mode.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.Summary">
+            <summary>Get information of config.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.EnableGpuMultiStream">
+            <summary>A boolean state telling whether the thread local CUDA stream is enabled.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.Valid">
+            <summary>A boolean state telling whether the Config is valid.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.EnableUseGpu(System.Int32,System.Int32,Sdcb.PaddleInference.PaddlePrecision)">
+            <summary>Turn on GPU.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.SetModel(System.String,System.String)">
+            <summary>Set the combined model with two specific pathes for program and parameters.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.ProgramPath">
+            <summary>Get the program file path.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.ParamsPat">
+            <summary>Get the params file path.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.SetMemoryModel(System.Byte[],System.Byte[])">
+            <summary>Specify the memory buffer of program and parameter. Used when model and params are loaded directly from memory.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.CpuMathThreadCount">
+            <summary>An int state telling how many threads are used in the CPU math library.</summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.NewExecutorEnabled">
+            <summary>
+            Gets or sets a value indicating whether the new executor is enabled.
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.NewIREnabled">
+            <summary>
+            Gets or sets a value indicating whether the new IR (Intermediate Representation) feature is enabled.
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.UseOptimizedModel">
+            <summary>
+            Sets a value indicating whether the optimized model should be used.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.CreatePredictor">
+            <summary>Create a new Predictor, and then dispose the config.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.DeletePass(System.String)">
+            <summary>
+            Deletes a pass with the specified name.
+            </summary>
+            <param name="passName">The name of the pass to be deleted.</param>
+            <remarks>
+            This method deletes a pass from the configuration using the provided name.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown if the <paramref name="passName"/> is null.</exception>
+            <seealso cref="M:Sdcb.PaddleInference.Native.PaddleNative.PD_ConfigDeletePass(System.IntPtr,System.IntPtr)"/>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleConfig.Passes">
+            <summary>Get information of passes.</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.Apply(System.Action{Sdcb.PaddleInference.PaddleConfig})">
+            <summary>
+            Apply the configuration to the PaddleConfig.
+            </summary>
+            <param name="configure">The action to configure the PaddleConfig.</param>
+            <returns>The modified PaddleConfig.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.Dispose">
+            <summary>
+            Frees the unmanaged resources used by the <see cref="T:Sdcb.PaddleInference.PaddleConfig"/> class.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Sdcb.PaddleInference.PaddleConfig"/> class.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfig.Dispose(System.Boolean)">
+            <summary>
+            Frees the unmanaged resources used by the <see cref="T:Sdcb.PaddleInference.PaddleConfig"/> class.
+            </summary>
+            <param name="disposing">true if called from Dispose(); false if called from Finalize().</param>
+        </member>
+        <member name="T:Sdcb.PaddleInference.PaddleConfigureExtensions">
+            <summary>
+            A static class containing extension methods for configuring a <see cref="T:Sdcb.PaddleInference.PaddleConfig"/> object.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleConfigureExtensions.And(System.Action{Sdcb.PaddleInference.PaddleConfig},System.Action{Sdcb.PaddleInference.PaddleConfig})">
+            <summary>
+            Combines two <see cref="T:System.Action"/>s that configure a <see cref="T:Sdcb.PaddleInference.PaddleConfig"/> object.
+            </summary>
+            <param name="action1">The first <see cref="T:System.Action"/>.</param>
+            <param name="action2">The second <see cref="T:System.Action"/>.</param>
+            <returns>A combined <see cref="T:System.Action"/> that can configure a <see cref="T:Sdcb.PaddleInference.PaddleConfig"/> object.</returns>
+        </member>
+        <member name="T:Sdcb.PaddleInference.PaddleDataType">
+            <summary>
+            An enumeration representing the different data types that can be used in Paddle Inference.
+            </summary>
+            <remarks>C API enum: PD_DataType.</remarks>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleDataType.Unknown">
+            <summary>
+            The data type is unknown.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleDataType.Float32">
+            <summary>
+            32-bit floating point number data type.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleDataType.Int32">
+            <summary>
+            32-bit integer data type.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleDataType.Int64">
+            <summary>
+            64-bit integer data type.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleDataType.UInt8">
+            <summary>
+            Unsigned 8-bit integer data type.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleDataType.Int8">
+            <summary>
+            Signed 8-bit integer data type.
+            </summary>
+        </member>
+        <member name="T:Sdcb.PaddleInference.PaddleDevice">
+            <summary>
+            Static class that provides actions for creating device-specific configurations for Paddle.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleDevice.Mkldnn(System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Creates an action that sets up a Paddle configuration for using MKL-DNN on the CPU.
+            </summary>
+            <param name="cacheCapacity">The capacity(in MB) of the MKL-DNN primitive cache. Default value is 1.</param>
+            <param name="cpuMathThreadCount">The number of CPU math threads to use. Default value is 0.</param>
+            <param name="memoryOptimized">Whether to use memory optimized mode. Default value is true.</param>
+            <param name="glogEnabled">Whether to enable GLog. Default value is false.</param>
+            <returns>The MKLDNN paddle device definition.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleDevice.Gpu(System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Creates an action that sets up a Paddle configuration for using the GPU with CUDA.
+            </summary>
+            <param name="initialMemoryMB">The initial memory size in megabytes. Default value is 500.</param>
+            <param name="deviceId">The GPU device ID to use. Default value is 0.</param>
+            <param name="multiStream">Whether to use multi-stream for concurrency. Default value is false.</param>
+            <param name="memoryOptimized">Whether to use memory optimized mode. Default value is true.</param>
+            <param name="glogEnabled">Whether to enable GLog. Default value is false.</param>
+            <returns>The GPU paddle device definition.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleDevice.TensorRt(System.String,System.String,System.Int32,System.Int32,System.Int32,Sdcb.PaddleInference.PaddlePrecision,System.Boolean,System.Boolean)">
+            <summary>
+            Creates an action that sets up a Paddle configuration for using the TensorRT engine.
+            </summary>
+            <param name="rangeShapeInfoKey">The key name of the range-shape information. This should match the name of the range-shape information dumped by PaddleInference. Required parameter.</param>
+            <param name="cacheDir">The path to the TensorRT cache directory. If null, the default cache directory is used.</param>
+            <param name="workspaceSize">The workspace size in bytes for TensorRT engine. Default value is 1MB.</param>
+            <param name="maxBatchSize">The maximum batch size for TensorRT engine. Default value is 1.</param>
+            <param name="minSubgraphSize">The minimum sub-graph size for tensorRT engine. Default value is 20.</param>
+            <param name="precision">The Precision mode for TensorRT engine. Default value is Float32.</param>
+            <param name="useStatic">Whether to use static engine optimization or dynamic engine optimization. Default value is true.</param>
+            <param name="useCalibMode">Whether to use TensorRT optimization with calibration mode. Default value is false.</param>
+            <returns>The TensorRT paddle device definition.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleDevice.TensorRt(System.Collections.Generic.Dictionary{System.String,Sdcb.PaddleInference.TensorRt.TensorRtDynamicShapeGroup},System.String,System.Int32,System.Int32,System.Int32,Sdcb.PaddleInference.PaddlePrecision,System.Boolean,System.Boolean)">
+            <summary>
+            Creates an action that sets up a Paddle configuration for using the TensorRT engine with dynamic shapes.
+            </summary>
+            <param name="shapeInfo">The TensorRT dynamic shape information to set. Required parameter.</param>
+            <param name="cacheDir">The path to the TensorRT cache directory.</param>
+            <param name="workspaceSize">The workspace size in bytes for TensorRT engine. Default value is 1MB.</param>
+            <param name="maxBatchSize">The maximum batch size for TensorRT engine. Default value is 1.</param>
+            <param name="minSubgraphSize">The minimum sub-graph size for tensorRT engine. Default value is 20.</param>
+            <param name="precision">The Precision mode for TensorRT engine. Default value is Float32.</param>
+            <param name="useStatic">Whether to use static engine optimization or dynamic engine optimization. Default value is true.</param>
+            <param name="useCalibMode">Whether to use TensorRT optimization with calibration mode. Default value is false.</param>
+            <returns>The TensorRT paddle device definition.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleDevice.Openblas(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Creates an action that sets up a Paddle configuration for using BLAS on the CPU.
+            </summary>
+            <param name="cpuMathThreadCount">The number of CPU math threads to use. Default value is 0.</param>
+            <param name="memoryOptimized">Whether to use memory optimized mode. Default value is true.</param>
+            <param name="glogEnabled">Whether to enable GLog. Default value is false.</param>
+            <returns>The openblas paddle device definition.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleDevice.Blas(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Creates an action that sets up a Paddle configuration for using BLAS on the CPU.
+            </summary>
+            <param name="cpuMathThreadCount">The number of CPU math threads to use. Default value is 0.</param>
+            <param name="memoryOptimized">Whether to use memory optimized mode. Default value is true.</param>
+            <param name="glogEnabled">Whether to enable GLog. Default value is false.</param>
+            <returns>The openblas paddle device definition.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleDevice.Onnx(System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Returns an Action delegate that configures PaddleConfig for use with Onnx.
+            </summary>
+            <param name="cpuMathThreadCount">The number of CPU threads to use for math operations. A value of 0 sets it to minimum of 4 and the available number of processors.</param>
+            <param name="enableOnnxOptimization">Flag to enable or disable Onnx runtime optimization.</param>
+            <param name="memoryOptimized">Flag to enable or disable memory optimization.</param>
+            <param name="glogEnabled">Flag to enable or disable logging with glog.</param>
+            <returns>The ONNX Runtime paddle device definition.</returns>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleDevice.PlatformDefault">
+            <summary>
+            Gets the default device configuration for Paddle operations based on the current operating system and
+            architecture.
+            </summary>
+        </member>
+        <member name="T:Sdcb.PaddleInference.PaddleIOInfo">
+            <summary>
+            Represents the input/output information for the PaddlePaddle inference framework.
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleIOInfo.Name">
+            <summary>
+            Gets or init the name of the input/output tensor.
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleIOInfo.Shape">
+            <summary>
+            Gets or init the shape of the input/output tensor.
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleIOInfo.DataType">
+            <summary>
+            Gets or init the data type of the input/output tensor.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleIOInfo.ToString">
+            <summary>
+            Text representation of the input/output tensor.
+            </summary>
+        </member>
+        <member name="T:Sdcb.PaddleInference.PaddleMemoryPlace">
+            <summary>
+            Represents the place for a paddle memory(C API type: PD_PlaceType).
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleMemoryPlace.Unknown">
+            <summary>
+            The memory place is unknown.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleMemoryPlace.Cpu">
+            <summary>
+            The memory place is a central processing unit (CPU).
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleMemoryPlace.Gpu">
+            <summary>
+            The memory place is a graphics processing unit (GPU).
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleMemoryPlace.Xpu">
+            <summary>
+            The memory place is a eXtensible processing unit (XPU).
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddleMemoryPlace.Custom">
+            <summary>
+            The memory place is a custom-defined place.
+            </summary>
+        </member>
+        <member name="T:Sdcb.PaddleInference.PaddlePrecision">
+            <summary>
+            Represents the supported precisions in Paddle Inference.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddlePrecision.Float32">
+            <summary>
+            Single-precision floating point format.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddlePrecision.Int8">
+            <summary>
+            8-bit integer format.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.PaddlePrecision.Float16">
+            <summary>
+            Half-precision floating point format.
+            </summary>
+        </member>
+        <member name="T:Sdcb.PaddleInference.PaddlePredictor">
+            <summary>
+            Wraps Paddle C Library's PaddlePredictor interface.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddlePredictor.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Sdcb.PaddleInference.PaddlePredictor"/> class.
+            </summary>
+            <param name="predictorPointer">Predictor pointer.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when predictorPointer is null.</exception>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddlePredictor.Clone">
+            <summary>
+            Creates and returns a new instance of the <see cref="T:Sdcb.PaddleInference.PaddlePredictor"/> class that is a copy of the current instance.
+            </summary>
+            <returns>A new instance of <see cref="T:Sdcb.PaddleInference.PaddlePredictor"/> object that is a copy of the current instance.</returns>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddlePredictor.InputNames">
+            <summary>
+            Gets the input tensor names of this predictor.
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddlePredictor.OutputNames">
+            <summary>
+            Gets the output tensor names of this predictor.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddlePredictor.GetInputTensor(System.String)">
+            <summary>
+            Gets the input tensor by name.
+            </summary>
+            <param name="name">Name of the input tensor to get.</param>
+            <returns>An instance of <see cref="T:Sdcb.PaddleInference.PaddleTensor"/> representing the input tensor.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddlePredictor.GetOutputTensor(System.String)">
+            <summary>
+            Gets the output tensor by name.
+            </summary>
+            <param name="name">Name of the output tensor to get.</param>
+            <returns>An instance of <see cref="T:Sdcb.PaddleInference.PaddleTensor"/> representing the output tensor.</returns>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddlePredictor.InputInfos">
+            <summary>
+            Gets the input information of this predictor.
+            <para>This includes details about the input tensors such as their names, shapes, and data types.</para>
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddlePredictor.OutputInfos">
+            <summary>
+            Gets the output information of this predictor.
+            <para>This includes details about the input tensors such as their names, shapes, and data types.</para>
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddlePredictor.InputSize">
+            <summary>
+            Gets the number of input tensors of this predictor.
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddlePredictor.OutputSize">
+            <summary>
+            Gets the number of output tensors of this predictor.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddlePredictor.Run">
+            <summary>
+            Runs the prediction with input data and generates model output.
+            </summary>
+            <returns>true if prediction runs successfully; false otherwise.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddlePredictor.ClearIntermediateTensor">
+            <summary>Clear the intermediate tensors of the predictor</summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddlePredictor.TryShrinkMemory">
+            <summary>Release all tmp tensor to compress the size of the memory pool. The memory pool is considered to be composed of a list of chunks, if the chunk is not occupied, it can be released.</summary>
+            <returns>Number of bytes released. It may be smaller than the actual released memory, because part of the memory is not managed by the MemoryPool.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddlePredictor.Dispose">
+            <summary>
+            Frees the unmanaged resources used by the <see cref="T:Sdcb.PaddleInference.PaddlePredictor"/> class.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddlePredictor.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Sdcb.PaddleInference.PaddlePredictor"/> class.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddlePredictor.Dispose(System.Boolean)">
+            <summary>
+            Frees the unmanaged resources used by the <see cref="T:Sdcb.PaddleInference.PaddlePredictor"/> class.
+            </summary>
+            <param name="disposing">true if called from Dispose(); false if called from Finalize().</param>
+        </member>
+        <member name="T:Sdcb.PaddleInference.PaddleTensor">
+            <summary>
+            A tensor for Paddle Inference.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleTensor.#ctor(System.IntPtr)">
+            <summary>
+            Creates a new instance of <see cref="T:Sdcb.PaddleInference.PaddleTensor"/> class.
+            </summary>
+            <param name="predictorPointer">Pointer to the associated predictor.</param>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleTensor.Name">
+            <summary>
+            Gets the name of this tensor.
+            </summary>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleTensor.Shape">
+            <summary>
+            Gets or sets the shape of this tensor.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleTensor.GetData``1">
+            <summary>
+            Gets the data of this tensor.
+            </summary>
+            <typeparam name="T">The type of the elements in the tensor.</typeparam>
+            <returns>The data of this tensor.</returns>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleTensor.SetData(System.Single[])">
+            <summary>
+            Sets the data of this tensor.
+            </summary>
+            <param name="data">The data to be set.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleTensor.SetData(System.Int32[])">
+            <summary>
+            Sets the data of this tensor.
+            </summary>
+            <param name="data">The data to be set.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleTensor.SetData(System.Int64[])">
+            <summary>
+            Sets the data of this tensor.
+            </summary>
+            <param name="data">The data to be set.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleTensor.SetData(System.Byte[])">
+            <summary>
+            Sets the data of this tensor.
+            </summary>
+            <param name="data">The data to be set.</param>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleTensor.SetData(System.SByte[])">
+            <summary>
+            Sets the data of this tensor.
+            </summary>
+            <param name="data">The data to be set.</param>
+        </member>
+        <member name="P:Sdcb.PaddleInference.PaddleTensor.DataType">
+            <summary>
+            Gets the data type of this tensor.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleTensor.Dispose">
+            <summary>
+            Frees the unmanaged resources used by the <see cref="T:Sdcb.PaddleInference.PaddleTensor"/> class.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleTensor.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Sdcb.PaddleInference.PaddleTensor"/> class.
+            </summary>
+        </member>
+        <member name="M:Sdcb.PaddleInference.PaddleTensor.Dispose(System.Boolean)">
+            <summary>
+            Frees the unmanaged resources used by the <see cref="T:Sdcb.PaddleInference.PaddleTensor"/> class.
+            </summary>
+            <param name="disposing">true if called from Dispose(); false if called from Finalize().</param>
+        </member>
+        <member name="T:Sdcb.PaddleInference.TensorRt.TensorRtDefaults">
+            <summary>
+            Default paths and settings for TensorRT integration with Paddle.
+            </summary>
+        </member>
+        <member name="F:Sdcb.PaddleInference.TensorRt.TensorRtDefaults.DefaultCacheFolder">
+            <summary>
+            The default cache folder for TensorRT files.
+            </summary>
+        </member>
+        <member name="T:Sdcb.PaddleInference.TensorRt.TensorRtDynamicShapeGroup">
+            <summary>
+            Represents a group of tensor shapes with dynamic dimensions for inference in TensorRT.
+            </summary>
+            <remarks>
+            This record contains the minimum, maximum, and optimal shapes for a group of tensors.
+            </remarks>
+        </member>
+        <member name="M:Sdcb.PaddleInference.TensorRt.TensorRtDynamicShapeGroup.#ctor(System.Int32[],System.Int32[],System.Int32[])">
+            <summary>
+            Represents a group of tensor shapes with dynamic dimensions for inference in TensorRT.
+            </summary>
+            <remarks>
+            This record contains the minimum, maximum, and optimal shapes for a group of tensors.
+            </remarks>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.OverloadResolutionPriorityAttribute">
+            <summary>
+            Specifies the priority of a member in overload resolution. When unspecified, the default priority is 0.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.OverloadResolutionPriorityAttribute.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Runtime.CompilerServices.OverloadResolutionPriorityAttribute"/> class.
+            </summary>
+            <param name="priority">The priority of the attributed member. Higher numbers are prioritized, lower numbers are deprioritized. 0 is the default if no attribute is present.</param>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.OverloadResolutionPriorityAttribute.Priority">
+            <summary>
+            The priority of the member.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.ParamCollectionAttribute">
+            <summary>
+            Indicates that a method will allow a variable number of arguments in its invocation.
+            </summary>
+        </member>
+    </members>
+</doc>
