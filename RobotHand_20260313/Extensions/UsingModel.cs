@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 using System.Windows.Media.Imaging;
 
 namespace RobotHand_20260313.Extensions
@@ -18,70 +19,60 @@ namespace RobotHand_20260313.Extensions
     }
    public class UsingModel
     {
-        public static string CalculateCrc(string commandPart)
+        // 原算法实现，未做任何改动
+        // CRC-16/XMODEM 算法（CCITT标准，多项式0x1021，左移逐位处理）
+        public static ushort ComputeCrcXmodem(byte[] data)
         {
-            // 将十六进制字符串转换为字节数组
-            byte[] data = new byte[commandPart.Length / 2];
-            for (int i = 0; i < data.Length; i++)
-            {
-                data[i] = Convert.ToByte(commandPart.Substring(i * 2, 2), 16);
-            }
+            const ushort preset = 0x0000;
+            const ushort polynomial = 0x1021;
+            ushort crc = preset;
 
-            // CRC16-MAXIM计算
-            ushort crc = 0xFFFF;
-            ushort polynomial = 0x8408;
-
-            for (int i = 0; i < data.Length; i++)
+            foreach (byte b in data)
             {
-                crc ^= data[i];
-                for (int j = 0; j < 8; j++)
+                crc ^= (ushort)(b << 8);
+                for (int i = 0; i < 8; i++)
                 {
-                    if ((crc & 0x0001) != 0)
+                    if ((crc & 0x8000) != 0)
                     {
-                        crc = (ushort)((crc >> 1) ^ polynomial);
+                        crc = (ushort)((crc << 1) ^ polynomial);
                     }
                     else
                     {
-                        crc = (ushort)(crc >> 1);
+                        crc = (ushort)(crc << 1);
                     }
                 }
             }
-
-            // 返回4位十六进制校验和
-            return crc.ToString("X4");
+            return crc;
         }
-        public static string SnapPicture(IntPtr m_Grabber)
+
+        // 加工函数：将十六进制字符串（如"200101"）转换为字节数组
+        // 要求字符串必须由偶数个十六进制字符组成（0-9, A-F, a-f）
+        private static byte[] HexStringToBytes(string hex)
         {
-            try
+            if (string.IsNullOrEmpty(hex))
+                return new byte[0];
+
+            int len = hex.Length;
+            if (len % 2 != 0)
+                throw new ArgumentException("十六进制字符串长度必须为偶数");
+
+            byte[] bytes = new byte[len / 2];
+            for (int i = 0; i < len; i += 2)
             {
-                if (m_Grabber != IntPtr.Zero)
-                {
-                    if (MvApi.CameraGrabber_SaveImage(m_Grabber, out IntPtr _image, 2000) == CameraSdkStatus.CAMERA_STATUS_SUCCESS)
-                    {
-                        string picName = "";
-                        //结果 picName 将会是类似于 HHmmssfff.BMP 的字符串，例如 153025456.BMP（假设当前时间是15点30分25秒456毫秒）。
-                        picName = string.Format("{0}.jpg", DateTime.Now.ToString("HHmmssfff"));
-
-
-                        string filename = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "SnapPhoto\\", picName);
-
-                        MvApi.CameraImage_SaveAsJpeg(_image, filename, 95);//CameraImage_
-                        MvApi.CameraImage_Destroy(_image);
-                        //相机提示信息
-                        //TextBlock.Text = System.IO.Path.GetFileName(filename) + " 拍照成功";
-                        return filename;
-                    }
-                }
-                return "";
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
             }
-            catch (Exception ex)
-            {
-                //LogHelper.WriteErrorLog("SnapPicture方法错误: " + ex.Message);
-                return "";
-            }
+            return bytes;
         }
 
-      
+        // 新增的便捷方法：直接传入十六进制字符串
+        public static string CalculateCrc(string hex)
+        {
+
+            byte[] datalist = HexStringToBytes(hex);
+
+           return  ComputeCrcXmodem(datalist).ToString("X4");
+        }
+
         public static BitmapSource GetRect(Mat mat,DetectionResultYolov8OD[] resultsyolov8)
         {
            

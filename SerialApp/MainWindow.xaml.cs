@@ -103,23 +103,17 @@ namespace SerialApp
             }
         }
 
-        public static string CalculateCrc(string commandPart)
+        // 原算法实现，未做任何改动
+        public static ushort ComputeCrcMaxim(byte[] data)
         {
-            // 将十六进制字符串转换为字节数组
-            byte[] data = new byte[commandPart.Length / 2];
-            for (int i = 0; i < data.Length; i++)
-            {
-                data[i] = Convert.ToByte(commandPart.Substring(i * 2, 2), 16);
-            }
+            const ushort preset = 0xFFFF;
+            const ushort polynomial = 0x8408;
+            ushort crc = preset;
 
-            // CRC16-MAXIM计算
-            ushort crc = 0xFFFF;
-            ushort polynomial = 0x8408;
-
-            for (int i = 0; i < data.Length; i++)
+            foreach (byte b in data)
             {
-                crc ^= data[i];
-                for (int j = 0; j < 8; j++)
+                crc ^= b;
+                for (int i = 0; i < 8; i++)
                 {
                     if ((crc & 0x0001) != 0)
                     {
@@ -131,10 +125,54 @@ namespace SerialApp
                     }
                 }
             }
-
-            // 返回4位十六进制校验和
-            return crc.ToString("X4");
+            return crc;
         }
+
+        // CRC-16/XMODEM 算法（CCITT标准，多项式0x1021，左移逐位处理）
+        public static ushort ComputeCrcXmodem(byte[] data)
+        {
+            const ushort preset = 0x0000;
+            const ushort polynomial = 0x1021;
+            ushort crc = preset;
+
+            foreach (byte b in data)
+            {
+                crc ^= (ushort)(b << 8);
+                for (int i = 0; i < 8; i++)
+                {
+                    if ((crc & 0x8000) != 0)
+                    {
+                        crc = (ushort)((crc << 1) ^ polynomial);
+                    }
+                    else
+                    {
+                        crc = (ushort)(crc << 1);
+                    }
+                }
+            }
+            return crc;
+        }
+
+        // 加工函数：将十六进制字符串（如"200101"）转换为字节数组
+        // 要求字符串必须由偶数个十六进制字符组成（0-9, A-F, a-f）
+        private static byte[] HexStringToBytes(string hex)
+        {
+            if (string.IsNullOrEmpty(hex))
+                return new byte[0];
+
+            int len = hex.Length;
+            if (len % 2 != 0)
+                throw new ArgumentException("十六进制字符串长度必须为偶数");
+
+            byte[] bytes = new byte[len / 2];
+            for (int i = 0; i < len; i += 2)
+            {
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            }
+            return bytes;
+        }
+
+
         public async void ControlMoveFunc(string data)
         {
             try
@@ -145,7 +183,10 @@ namespace SerialApp
                 //数据内容 是哪个轴移动，00 x轴 01 y轴 02 z轴
 
                 //string data = "200100";
-                string crc = CalculateCrc(data);
+                byte[] datalist = HexStringToBytes(data);
+
+                //string crc = ComputeCrcMaxim(datalist).ToString("X4");
+                string crc = ComputeCrcXmodem(datalist).ToString("X4");
                 string cmd = "FFE0" + data + crc + "FFE1";
                 await serialPortService.SendAsync(cmd);
                 AddLog("发送：" + cmd);

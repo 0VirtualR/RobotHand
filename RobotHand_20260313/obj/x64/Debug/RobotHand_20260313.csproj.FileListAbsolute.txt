@@ -64,4 +64,14 @@ E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\
 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\obj\x64\Debug\RobotHand_20260313.csproj.CoreCompileInputs.cache
 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\obj\x64\Debug\RobotHand_20260313.exe
 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\obj\x64\Debug\RobotHand_20260313.pdb
-E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\obj\x64\Debug\RobotHand_20260313.csproj.CopyComplete
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\obj\x64\Debug\Views\InitCamera.g.cs
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\bin\x64\Debug\Newtonsoft.Json.dll
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\bin\x64\Debug\Newtonsoft.Json.xml
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\obj\x64\Debug\Views\InitCamera.baml
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\bin\x64\Debug\MaterialDesignColors.dll
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\bin\x64\Debug\MaterialDesignThemes.Wpf.dll
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\bin\x64\Debug\Microsoft.Xaml.Behaviors.dll
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\bin\x64\Debug\MaterialDesignThemes.Wpf.xml
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\bin\x64\Debug\Microsoft.Xaml.Behaviors.pdb
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\bin\x64\Debug\Microsoft.Xaml.Behaviors.xml
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\obj\x64\Debug\RobotHan.E25FA790.Up2Date

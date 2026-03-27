@@ -5,6 +5,7 @@ using OpenCvSharp.WpfExtensions;
 using RobotHand_20260313.Extensions;
 using RobotHand_20260313.SerialPorts;
 using RobotHand_20260313.Tools;
+using RobotHand_20260313.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -43,12 +44,10 @@ namespace RobotHand_20260313
         protected IntPtr m_Grabber = IntPtr.Zero;
         protected CameraHandle m_hCamera = 0;
         protected tSdkCameraDevInfo m_DevInfo;
-        tSdkImageResolution tResolution;
         protected ColorPalette m_GrayPal;
         protected pfnCameraGrabberFrameCallback m_FrameCallback;
         protected System.Windows.Threading.DispatcherTimer m_StatTimer;
 
-        DispatcherTimer timer = new DispatcherTimer();
 
         private static int IsGetPosition = 0;
         private static Point2f OriginPoint=new Point2f(0,70);
@@ -59,9 +58,6 @@ namespace RobotHand_20260313
             InitializeComponent();
             InitApp();
 
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += Timer_Tick;
-            timer.Start();
             this.serialPortService = new SerialPortService();
         }
 
@@ -91,6 +87,11 @@ namespace RobotHand_20260313
             ComboBoxRate.ItemsSource = RateAll;
 
         }
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MvApi.CameraGrabber_Destroy(m_Grabber);
+            serialPortService.Close();
+        }
 
         private void MainWindow_Load(object sender, RoutedEventArgs e)
         {
@@ -102,7 +103,8 @@ namespace RobotHand_20260313
             m_StatTimer.Interval = TimeSpan.FromSeconds(1);
             m_StatTimer.Tick += timer1_Tick;
             m_StatTimer.Start();
-        }
+        } 
+    
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -118,7 +120,7 @@ namespace RobotHand_20260313
                 //替换为 stat.DispFps，表示显示帧率，格式化为小数点后一位。
                 //{ 3:0.0}
                 //替换为 stat.CapFps，表示捕获帧率，格式化为小数点后一位。
-                string info = String.Format("| Resolution:{0}*{1} | DispFPS:{2:0.0} | CapFPS:{3:0.0} |",
+                TimeText.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"___"+ String.Format("| Resolution:{0}*{1} | DispFPS:{2:0.0} | CapFPS:{3:0.0} |",
                     stat.Width, stat.Height, stat.DispFps, stat.CapFps);
                 //LabelStat.Content = info;
             }
@@ -127,6 +129,39 @@ namespace RobotHand_20260313
 
         }
         DetectionResultYolov8OD[] resultlist = null;
+        private bool IsStartWork=fa;
+        public string SnapPicture()
+        {
+            try
+            {
+                if (m_Grabber != IntPtr.Zero)
+                {
+                    if (MvApi.CameraGrabber_SaveImage(m_Grabber, out IntPtr _image, 2000) == CameraSdkStatus.CAMERA_STATUS_SUCCESS)
+                    {
+                        string picName = "";
+                        //结果 picName 将会是类似于 HHmmssfff.BMP 的字符串，例如 153025456.BMP（假设当前时间是15点30分25秒456毫秒）。
+                        picName = string.Format("{0}.jpg", DateTime.Now.ToString("HHmmssfff"));
+
+
+                        string filename = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "SnapPhoto\\", picName);
+
+                        MvApi.CameraImage_SaveAsJpeg(_image, filename, 95);//CameraImage_SaveAsJpeg  CameraImage_SaveAsBmp
+                                                                           //MvApi.CameraImage_SaveAsJpeg(_image, filename);
+                        MvApi.CameraImage_Destroy(_image);
+                        //相机提示信息
+                        //TextBlock.Text = System.IO.Path.GetFileName(filename) + " 拍照成功";
+                        return filename;
+                    }
+                }
+                return "";
+            }
+            catch (Exception ex)
+            {
+                //LogHelper.WriteErrorLog("SnapPicture方法错误: " + ex.Message);
+                return "";
+            }
+        }
+
         private void CameraGrabberFrameCallback(
         IntPtr Grabber,
         IntPtr pFrameBuffer,
@@ -193,7 +228,7 @@ namespace RobotHand_20260313
                 }));
             }
 
-            if (IsGetPosition++ > 15)
+            if ( IsStartWork && IsGetPosition++ > 15)
             {
                 IsGetPosition = 0;
 
@@ -306,14 +341,7 @@ namespace RobotHand_20260313
             }
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            TimeText.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-        }
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+
         public void AddLog(string message)
         {
             Application.Current.Dispatcher.Invoke(() =>
@@ -375,6 +403,34 @@ namespace RobotHand_20260313
             {
                 LogHelper.WriteOrderLog(ex.ToString());
             }
+        }
+
+        private void Btn_Start_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsStartWork == false)
+            {
+                if (!serialPortService.IsOpen)
+                {
+                    AddLog("串口没有打开！");
+                    return;
+                }
+                IsStartWork = true;
+                Btn_Start.Content = "停止程序";
+            }
+            else
+            {
+                IsStartWork = false;
+                Btn_Start.Content = "开始程序";
+                serialPortService.Close();
+            }
+          
+        }
+
+        private void Btn_Init_Click(object sender, RoutedEventArgs e)
+        {
+          
+            var initform = new InitCamera(this);
+            initform.Show();
         }
     }
 }

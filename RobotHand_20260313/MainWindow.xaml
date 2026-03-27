@@ -8,7 +8,8 @@
         Title="机械臂注胶上位机程序"
         Height="600"
         Width="1000"
-        Loaded="MainWindow_Load">
+         Style="{StaticResource MaterialDesignWindow}"
+        Loaded="MainWindow_Load" Closing="MainWindow_Closing">
     <Window.Resources>
 
     </Window.Resources>
@@ -20,9 +21,8 @@
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
         <StackPanel Background="#F0F0F0" Orientation="Horizontal" >
-            <Button Content="开始程序"/>
-            <Button Content="关闭程序"/>
-            <Button Content="抓拍识别" Click="Button_Click"/>
+            <Button Margin="30,0" Content="开始程序" Name="Btn_Start" Click="Btn_Start_Click"/>
+            <Button Content="初始化程序" x:Name="Btn_Init" Click="Btn_Init_Click"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
