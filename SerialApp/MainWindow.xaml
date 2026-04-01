@@ -42,12 +42,15 @@
         </Grid>
         <TextBlock Text="运行日志：" FontSize="22"  Margin="24,247,476,144"/>
         <ListBox x:Name="LogBox"   Margin="10,289,460,15"/>
-        <Button Content="X轴向前" HorizontalAlignment="Left" Margin="499,35,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Up_Click"/>
-        <Button Content="X轴向后" HorizontalAlignment="Left" Margin="499,97,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Down_Click"/>
-        <Button Content="Y轴向前" HorizontalAlignment="Left" Margin="499,159,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Up_Click"/>
-        <Button Content="Y轴向后" HorizontalAlignment="Left" Margin="499,221,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Down_Click"/>
-        <Button Content="Z轴向上" HorizontalAlignment="Left" Margin="499,279,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Up_Click"/>
-        <Button Content="Z轴向下" HorizontalAlignment="Left" Margin="499,341,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Down_Click"/>
+        <Button Content="X轴向前" HorizontalAlignment="Left" Margin="385,51,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Up_Click"/>
+        <Button Content="X轴向后" HorizontalAlignment="Left" Margin="385,113,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Down_Click"/>
+        <Button Content="Y轴向前" HorizontalAlignment="Left" Margin="385,175,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Up_Click"/>
+        <Button Content="Y轴向后" HorizontalAlignment="Left" Margin="385,237,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Down_Click"/>
+        <Button Content="Z轴向上" HorizontalAlignment="Left" Margin="385,295,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Up_Click"/>
+        <Button Content="Z轴向下" HorizontalAlignment="Left" Margin="385,357,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Down_Click"/>
+        <Button Content="X轴停止" HorizontalAlignment="Left" Margin="565,51,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Stop_Click"/>
+        <Button Content="Y轴停止" HorizontalAlignment="Left" Margin="565,175,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Stop_Click"/>
+        <Button Content="Z轴停止" HorizontalAlignment="Left" Margin="565,295,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Stop_Click"/>
 
     </Grid>
 </Window>

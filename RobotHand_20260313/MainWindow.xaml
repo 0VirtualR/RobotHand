@@ -69,6 +69,7 @@
                 </Grid>
                 <TextBlock Text="运行日志：" FontSize="22"  Margin="25,10"/>
                 <ListBox Name="LogBox"   Height="124"   Margin="10"/>
+                <TextBox TextWrapping="Wrap" x:Name="MinRegion" Text="30" Width="120"/>
             </StackPanel>
         </Grid>
         <TextBlock Grid.Row="2" Name="TimeText"

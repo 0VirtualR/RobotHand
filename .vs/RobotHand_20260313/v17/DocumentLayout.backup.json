@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6A6E9FD0-C6CD-413E-BA12-76E35DAEFFE1}|SerialApp\\SerialApp.csproj|e:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\robothand_20260313\\serialapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6A6E9FD0-C6CD-413E-BA12-76E35DAEFFE1}|SerialApp\\SerialApp.csproj|solutionrelative:serialapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|e:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\robothand_20260313\\robothand_20260313\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|solutionrelative:robothand_20260313\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|e:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\robothand_20260313\\robothand_20260313\\views\\initcamera.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|solutionrelative:robothand_20260313\\views\\initcamera.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|e:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\robothand_20260313\\robothand_20260313\\views\\initcamera.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|solutionrelative:robothand_20260313\\views\\initcamera.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|e:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\robothand_20260313\\robothand_20260313\\extensions\\snackbarextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|solutionrelative:robothand_20260313\\extensions\\snackbarextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\robothand_20260313\\extensions\\usingmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|solutionrelative:robothand_20260313\\extensions\\usingmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A6E9FD0-C6CD-413E-BA12-76E35DAEFFE1}|SerialApp\\SerialApp.csproj|E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\serialapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A6E9FD0-C6CD-413E-BA12-76E35DAEFFE1}|SerialApp\\SerialApp.csproj|solutionrelative:serialapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|e:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\robothand_20260313\\robothand_20260313\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6E82EBCA-E954-42FB-8FD4-76E171E446C9}|RobotHand_20260313\\RobotHand_20260313.csproj|solutionrelative:robothand_20260313\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,78 +46,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SnackbarExtensions.cs",
-              "DocumentMoniker": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\Extensions\\SnackbarExtensions.cs",
-              "RelativeDocumentMoniker": "RobotHand_20260313\\Extensions\\SnackbarExtensions.cs",
-              "ToolTip": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\Extensions\\SnackbarExtensions.cs",
-              "RelativeToolTip": "RobotHand_20260313\\Extensions\\SnackbarExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvxUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T11:45:31.31Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InitCamera.xaml.cs",
-              "DocumentMoniker": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\Views\\InitCamera.xaml.cs",
-              "RelativeDocumentMoniker": "RobotHand_20260313\\Views\\InitCamera.xaml.cs",
-              "ToolTip": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\Views\\InitCamera.xaml.cs",
-              "RelativeToolTip": "RobotHand_20260313\\Views\\InitCamera.xaml.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAADwv4QAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T11:36:40.082Z",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\SerialApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "SerialApp\\MainWindow.xaml",
+              "ToolTip": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\SerialApp\\MainWindow.xaml",
+              "RelativeToolTip": "SerialApp\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-01T06:43:03.55Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "InitCamera.xaml",
-              "DocumentMoniker": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\Views\\InitCamera.xaml",
-              "RelativeDocumentMoniker": "RobotHand_20260313\\Views\\InitCamera.xaml",
-              "ToolTip": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\Views\\InitCamera.xaml",
-              "RelativeToolTip": "RobotHand_20260313\\Views\\InitCamera.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-24T11:33:56.27Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "RobotHand_20260313\\MainWindow.xaml.cs",
-              "ToolTip": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\MainWindow.xaml.cs*",
-              "RelativeToolTip": "RobotHand_20260313\\MainWindow.xaml.cs*",
-              "ViewState": "AgIAAMoAAAAAAAAAAAAkwOYAAAAcAAAAAAAAAA==",
+              "ToolTip": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\MainWindow.xaml.cs",
+              "RelativeToolTip": "RobotHand_20260313\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAYBAAAAAAAAAAASwBcBAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T02:26:50.848Z",
+              "WhenOpened": "2026-03-31T11:19:54.591Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UsingModel.cs",
-              "DocumentMoniker": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\Extensions\\UsingModel.cs",
-              "RelativeDocumentMoniker": "RobotHand_20260313\\Extensions\\UsingModel.cs",
-              "ToolTip": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\Extensions\\UsingModel.cs",
-              "RelativeToolTip": "RobotHand_20260313\\Extensions\\UsingModel.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAQwEYAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T02:25:26.68Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\SerialApp\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "SerialApp\\MainWindow.xaml.cs",
-              "ToolTip": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\SerialApp\\MainWindow.xaml.cs",
-              "RelativeToolTip": "SerialApp\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAUwLwAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T02:25:13.449Z",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "RobotHand_20260313\\MainWindow.xaml",
+              "ToolTip": "E:\\2026\u5E74\u9879\u76EE____________________\u63A5\u624B\u6768\u6D69\\2.\u70B9\u80F6\u673A\\RobotHand_20260313\\RobotHand_20260313\\MainWindow.xaml",
+              "RelativeToolTip": "RobotHand_20260313\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-31T11:19:36.022Z",
               "EditorCaption": ""
             }
           ]

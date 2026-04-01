@@ -8,6 +8,7 @@ using RobotHand_20260313.Tools;
 using RobotHand_20260313.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -50,7 +51,7 @@ namespace RobotHand_20260313
 
 
         private static int IsGetPosition = 0;
-        private static Point2f OriginPoint=new Point2f(0,70);
+        private static Point2f OriginPoint = new Point2f(0, 70);
         private readonly ISerialPortService serialPortService;
 
         public MainWindow()
@@ -59,6 +60,12 @@ namespace RobotHand_20260313
             InitApp();
 
             this.serialPortService = new SerialPortService();
+            this.serialPortService.DataReceived += new Action<string>(ReceivcePortFunc);
+        }
+
+        private void ReceivcePortFunc(string obj)
+        {
+                AddLog("接收到串口返回数据：" + obj);
         }
 
         private void InitApp()
@@ -90,7 +97,13 @@ namespace RobotHand_20260313
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MvApi.CameraGrabber_Destroy(m_Grabber);
-            serialPortService.Close();
+            if (serialPortService.IsOpen)
+            {
+                ControlMoveFunc("220100");
+                ControlMoveFunc("220101");
+                ControlMoveFunc("220102");
+                serialPortService.Close();
+            }
         }
 
         private void MainWindow_Load(object sender, RoutedEventArgs e)
@@ -103,8 +116,8 @@ namespace RobotHand_20260313
             m_StatTimer.Interval = TimeSpan.FromSeconds(1);
             m_StatTimer.Tick += timer1_Tick;
             m_StatTimer.Start();
-        } 
-    
+        }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -120,7 +133,7 @@ namespace RobotHand_20260313
                 //替换为 stat.DispFps，表示显示帧率，格式化为小数点后一位。
                 //{ 3:0.0}
                 //替换为 stat.CapFps，表示捕获帧率，格式化为小数点后一位。
-                TimeText.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"___"+ String.Format("| Resolution:{0}*{1} | DispFPS:{2:0.0} | CapFPS:{3:0.0} |",
+                TimeText.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "___" + String.Format("| Resolution:{0}*{1} | DispFPS:{2:0.0} | CapFPS:{3:0.0} |",
                     stat.Width, stat.Height, stat.DispFps, stat.CapFps);
                 //LabelStat.Content = info;
             }
@@ -129,7 +142,10 @@ namespace RobotHand_20260313
 
         }
         DetectionResultYolov8OD[] resultlist = null;
-        private bool IsStartWork=fa;
+        private bool IsStartWork = false;
+        private bool IsX_OK = false;
+        private bool IsY_OK = false;
+
         public string SnapPicture()
         {
             try
@@ -213,10 +229,10 @@ namespace RobotHand_20260313
             {
                 this.Dispatcher.Invoke(new Action(() =>
                 {
-                 
-                        ImageView.Source = UsingModel.GetRect(mat,resultlist);
-                    
-                   
+
+                    ImageView.Source = UsingModel.GetRect(mat, resultlist);
+
+
                 }));
                 resultlist = null;
             }
@@ -228,50 +244,81 @@ namespace RobotHand_20260313
                 }));
             }
 
-            if ( IsStartWork && IsGetPosition++ > 15)
+            if (IsStartWork && IsGetPosition++ > 20)
             {
+                float limit = 10;
                 IsGetPosition = 0;
-
                 // 在子线程中执行
                 Task.Run(() =>
                 {
-                    ResultModel  resultModel= UsingModel.ODRecognition(mat);
+                    ResultModel resultModel = UsingModel.ODRecognition(mat);
                     resultlist = resultModel.resultsyolov8;
-                    // 日志需要在UI线程
-                    Application.Current.Dispatcher.Invoke(() =>
+
+                    AddLog("X:" + resultModel.point2F.X + "_Y:" + resultModel.point2F.Y);
+                 
+                
+                    if (serialPortService.IsOpen /*&&( resultModel.point2F.X > 0 || resultModel.point2F.Y > 0)*/)
                     {
-                        AddLog("X:" + resultModel.point2F.X + "_Y:" + resultModel.point2F.Y);
-                    });
-                    if(serialPortService.IsOpen &&( resultModel.point2F.X > 0 || resultModel.point2F.Y > 0))
-                    {
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+
+                            limit = int.Parse(MinRegion.Text);
+                        });
                         // 计算偏移
                         float offsetX = resultModel.point2F.X - OriginPoint.X;
-                        float offsetY = resultModel.point2F.Y - OriginPoint.Y;
+                        float offsetY =  resultModel.point2F.Y - OriginPoint.Y ;
 
-                        // X轴控制
-                        if (offsetX > 0)
+                        // Y轴控制 
+                        if (IsX_OK)
                         {
-                            ControlMoveFunc("210100");
+                            if (offsetY > limit)
+
+                            {
+                                ControlMoveFunc("240101");
+                                //ControlMoveFunc("210101");
+                            }
+                            else if (offsetY < -limit)
+                            {
+                                ControlMoveFunc("250101");
+                                //ControlMoveFunc("200101");
+                            }
+                            else if (!IsY_OK)
+                            {
+                                IsY_OK = true;
+
+                                ControlMoveFunc("220101");
+                            }
                         }
                         else
                         {
-                            ControlMoveFunc("200100");
+                            // X轴控制
+                            if (offsetX > limit)
+                            {
+                                //ControlMoveFunc("210100");
+                                ControlMoveFunc("240100");
+                            }
+                            else if (offsetX < -limit)
+                            {
+                                ControlMoveFunc("250100");
+                                //ControlMoveFunc("200100");
+                            }
+                            else if (!IsX_OK)
+                            {
+                                IsX_OK = true;
+                                ControlMoveFunc("220100");
+                            }
                         }
 
-                        // 等待300ms
-                        Thread.Sleep(300);
 
-                        // Y轴控制
-                        if (offsetY > 0)
+
+
+                        if (IsX_OK && IsY_OK)
                         {
-                            ControlMoveFunc("210101");
+                            IsY_OK = false;
+                            IsX_OK = false;
                         }
-                        else
-                        {
-                            ControlMoveFunc("200101");
-                        }
-                    } 
-                 
+                    }
+
                 });
             }
 
@@ -309,7 +356,7 @@ namespace RobotHand_20260313
                 MvApi.CameraCreateSettingPage(m_hCamera, handle, m_DevInfo.acFriendlyName, null, (IntPtr)0, 0);
 
                 MvApi.CameraGrabber_SetRGBCallback(m_Grabber, m_FrameCallback, IntPtr.Zero);
-           
+
                 // 黑白相机设置ISP输出灰度图像
                 // 彩色相机ISP默认会输出BGR24图像
                 tSdkCameraCapbility cap;
@@ -352,7 +399,7 @@ namespace RobotHand_20260313
                     LogBox.ScrollIntoView(LogBox.Items[LogBox.Items.Count - 1]);
             });
         }
-      public async void ControlMoveFunc(string data)
+        public async void ControlMoveFunc(string data)
         {
             try
             {
@@ -365,9 +412,9 @@ namespace RobotHand_20260313
                 string crc = UsingModel.CalculateCrc(data);
                 string cmd = "FFE0" + data + crc + "FFE1";
                 await serialPortService.SendAsync(cmd);
-                AddLog("发送："+cmd);
+                AddLog("发送：" + cmd);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 LogHelper.WriteOrderLog(ex.ToString());
             }
@@ -386,7 +433,7 @@ namespace RobotHand_20260313
                     SolidColorBrush newBrush = new SolidColorBrush(Colors.Red);
                     portLight.Fill = newBrush;
                     Connection.Content = "连接";
-                     AddLog("串口已断开");
+                    AddLog("串口已断开");
                 }
                 else
                 {
@@ -423,12 +470,12 @@ namespace RobotHand_20260313
                 Btn_Start.Content = "开始程序";
                 serialPortService.Close();
             }
-          
+
         }
 
         private void Btn_Init_Click(object sender, RoutedEventArgs e)
         {
-          
+
             var initform = new InitCamera(this);
             initform.Show();
         }

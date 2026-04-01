@@ -31,9 +31,19 @@ namespace SerialApp
         {
             InitializeComponent();
             this.serialPortService = new SerialPortService();
+            this.serialPortService.DataReceived += new Action<string>(ReceiveFunc);  
 
             InitApp();
         }
+
+        private void ReceiveFunc(string obj)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                LogBox.Items.Add($"[{DateTime.Now:HH:mm:ss}] 接收：{obj}");
+            });
+        }
+
         private void InitApp()
         {
             // 初始化串口号
@@ -200,7 +210,8 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("200100");
+                ControlMoveFunc("240100");
+                //ControlMoveFunc("200100");
             }
         }
 
@@ -208,7 +219,8 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("210100");
+                ControlMoveFunc("250100");
+                //ControlMoveFunc("210100");
             }
         }
 
@@ -216,7 +228,8 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("200101");
+                ControlMoveFunc("240101");
+                //ControlMoveFunc("200101");
             }
         }
 
@@ -224,7 +237,8 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("210101");
+                ControlMoveFunc("250101");
+                //ControlMoveFunc("210101");
             }
         }
 
@@ -232,7 +246,8 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("200102");
+                ControlMoveFunc("250102");
+                //ControlMoveFunc("200102");
             }
         }
 
@@ -240,8 +255,24 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("210102");
+                ControlMoveFunc("240102");
+                //ControlMoveFunc("210102");
             }
+        }
+
+        private void X_Stop_Click(object sender, RoutedEventArgs e)
+        {
+            ControlMoveFunc("220100");
+        }
+
+        private void Y_Stop_Click(object sender, RoutedEventArgs e)
+        {
+            ControlMoveFunc("220101");
+        }
+
+        private void Z_Stop_Click(object sender, RoutedEventArgs e)
+        {
+            ControlMoveFunc("220102");
         }
     }
 }
