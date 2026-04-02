@@ -1,9 +1,12 @@
 ﻿using MVSDK;
+using Newtonsoft.Json;
 using OpenCvSharp;
 using OpenCvSharp.WpfExtensions;
+using RobotHand_20260313.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +18,7 @@ namespace RobotHand_20260313.Extensions
     public class ResultModel
     {
        public DetectionResultYolov8OD[] resultsyolov8;
-      public  Point2f point2F;
+      public  Point2f point2F=new Point2f(10000,10000);
     }
    public class UsingModel
     {
@@ -156,19 +159,7 @@ namespace RobotHand_20260313.Extensions
                 Point2f c = center.Value;
                 Console.WriteLine($"[OK] Final center = ({c.X:F2}, {c.Y:F2})");
 
-
-                Point2f[] imgPts =
-                                {
-                    new Point2f(1023, 865),
-                    new Point2f(1215, 872),
-                    new Point2f(1411, 875),
-                    new Point2f(1023, 1061),
-                    new Point2f(1215, 1064),
-                    new Point2f(1411, 1068),
-                    new Point2f(1023, 1253),
-                    new Point2f(1215, 1260),
-                    new Point2f(1408, 1260)
-                };
+                var (imgPts, startPixel) = LoadCalibration("calibration.json");
 
                 Point2f[] worldPts =
                                {
@@ -184,8 +175,7 @@ namespace RobotHand_20260313.Extensions
                 };
 
                 Point2f centerPixel = new Point2f(c.X, c.Y);//1215, 1064  c.X, c.Y
-                Point2f startPixel = new Point2f(2091, 738);
-
+              
                 if (pictureRecognitionYolov8.ComputeDeltaByHomography(
                             imgPts,
                             worldPts,
@@ -198,10 +188,26 @@ namespace RobotHand_20260313.Extensions
                     resultModel.point2F.Y = deltaMm.Y;
                     //Console.WriteLine( $"[RESULT] Move ΔX={deltaMm.X:F4} mm, ΔY={deltaMm.Y:F4} mm");
                 }
+              
 
             }
+          
             return resultModel;
             //return anySuccess;
         }
+        static (Point2f[] imgPts, Point2f cameraOrigin) LoadCalibration(string filePath)
+        {
+            if (!File.Exists(filePath))
+                throw new FileNotFoundException(filePath);
+
+            string json = File.ReadAllText(filePath);
+            var calibData = JsonConvert.DeserializeObject<CalibrationData>(json);
+
+            Point2f[] imgPts = calibData.ImagePoints.ToArray();
+            Point2f cameraOrigin = calibData.CameraOrigin;
+
+            return (imgPts, cameraOrigin);
+        }
+
     }
 }

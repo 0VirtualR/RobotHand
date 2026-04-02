@@ -47,7 +47,7 @@
                         <ColumnDefinition Width="213*"/>
                     </Grid.ColumnDefinitions>
                     <Label Content="串口号：" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Height="32" Width="90"/>
-                    <ComboBox Height="25" Width="120"  x:Name="ComboBoxSerial" VerticalAlignment="Center" Grid.Column="2">
+                    <ComboBox Height="25" Width="120"  x:Name="ComboBoxSerial" VerticalAlignment="Center" Grid.Column="2" SelectedIndex="0">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Foreground="Black"/>
@@ -56,7 +56,7 @@
                     </ComboBox>
 
                     <Label Content="波特率：" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Height="33" Width="90"/>
-                    <ComboBox Width="120" Height="25" x:Name="ComboBoxRate" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2">
+                    <ComboBox SelectedIndex="0" Width="120" Height="25" x:Name="ComboBoxRate" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" Foreground="Black"/>
@@ -69,7 +69,7 @@
                 </Grid>
                 <TextBlock Text="运行日志：" FontSize="22"  Margin="25,10"/>
                 <ListBox Name="LogBox"   Height="124"   Margin="10"/>
-                <TextBox TextWrapping="Wrap" x:Name="MinRegion" Text="30" Width="120"/>
+                <TextBox TextWrapping="Wrap" x:Name="MinRegion" Text="-10" Width="120"/>
             </StackPanel>
         </Grid>
         <TextBlock Grid.Row="2" Name="TimeText"

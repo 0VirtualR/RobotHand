@@ -50,8 +50,8 @@ namespace RobotHand_20260313
         protected System.Windows.Threading.DispatcherTimer m_StatTimer;
 
 
-        private static int IsGetPosition = 0;
-        private static Point2f OriginPoint = new Point2f(0, 70);
+        private static bool IsGetPosition = true;
+        private static Point2f OriginPoint = new Point2f(0, 0);
         private readonly ISerialPortService serialPortService;
 
         public MainWindow()
@@ -65,7 +65,8 @@ namespace RobotHand_20260313
 
         private void ReceivcePortFunc(string obj)
         {
-                AddLog("接收到串口返回数据：" + obj);
+            AddLog("接收到串口返回数据：" + obj);
+            IsReceivedPortMsg = true;
         }
 
         private void InitApp()
@@ -99,10 +100,7 @@ namespace RobotHand_20260313
             MvApi.CameraGrabber_Destroy(m_Grabber);
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("220100");
-                ControlMoveFunc("220101");
-                ControlMoveFunc("220102");
-                serialPortService.Close();
+                CLoseRobotPort();
             }
         }
 
@@ -141,10 +139,14 @@ namespace RobotHand_20260313
             //TimeTextBlock.Text = DateTime.Now.ToString("HH:mm:ss");
 
         }
-        DetectionResultYolov8OD[] resultlist = null;
+        DetectionResultYolov8OD[] resultList = null;
+        private Point2f resultPoint = new Point2f(10000,10000);
+        private Point2f oldPoint = new Point2f();
         private bool IsStartWork = false;
         private bool IsX_OK = false;
+        private bool IsNextPosition=false;
         private bool IsY_OK = false;
+        private bool IsReceivedPortMsg;
 
         public string SnapPicture()
         {
@@ -223,105 +225,104 @@ namespace RobotHand_20260313
             bitmapSource.Freeze();
             DeleteObject(hBitmap);
 
-            Mat mat = bitmapSource.ToMat();
+          
 
-            if (resultlist != null)
+            if (IsStartWork && IsGetPosition)
             {
-                this.Dispatcher.Invoke(new Action(() =>
-                {
-
-                    ImageView.Source = UsingModel.GetRect(mat, resultlist);
-
-
-                }));
-                resultlist = null;
-            }
-            else
-            {
-                this.Dispatcher.Invoke(new Action(() =>
-                {
-                    ImageView.Source = (bitmapSource);
-                }));
-            }
-
-            if (IsStartWork && IsGetPosition++ > 20)
-            {
-                float limit = 10;
-                IsGetPosition = 0;
+                IsGetPosition = false;
                 // 在子线程中执行
                 Task.Run(() =>
                 {
-                    ResultModel resultModel = UsingModel.ODRecognition(mat);
-                    resultlist = resultModel.resultsyolov8;
+                    
+                    ResultModel resultModel = UsingModel.ODRecognition(bitmapSource.ToMat());
+                    resultList = resultModel.resultsyolov8;
+                    resultPoint = resultModel.point2F;
 
                     AddLog("X:" + resultModel.point2F.X + "_Y:" + resultModel.point2F.Y);
-                 
-                
-                    if (serialPortService.IsOpen /*&&( resultModel.point2F.X > 0 || resultModel.point2F.Y > 0)*/)
-                    {
-                        Application.Current.Dispatcher.Invoke(() =>
-                        {
 
-                            limit = int.Parse(MinRegion.Text);
-                        });
-                        // 计算偏移
-                        float offsetX = resultModel.point2F.X - OriginPoint.X;
-                        float offsetY =  resultModel.point2F.Y - OriginPoint.Y ;
-
-                        // Y轴控制 
-                        if (IsX_OK)
-                        {
-                            if (offsetY > limit)
-
-                            {
-                                ControlMoveFunc("240101");
-                                //ControlMoveFunc("210101");
-                            }
-                            else if (offsetY < -limit)
-                            {
-                                ControlMoveFunc("250101");
-                                //ControlMoveFunc("200101");
-                            }
-                            else if (!IsY_OK)
-                            {
-                                IsY_OK = true;
-
-                                ControlMoveFunc("220101");
-                            }
-                        }
-                        else
-                        {
-                            // X轴控制
-                            if (offsetX > limit)
-                            {
-                                //ControlMoveFunc("210100");
-                                ControlMoveFunc("240100");
-                            }
-                            else if (offsetX < -limit)
-                            {
-                                ControlMoveFunc("250100");
-                                //ControlMoveFunc("200100");
-                            }
-                            else if (!IsX_OK)
-                            {
-                                IsX_OK = true;
-                                ControlMoveFunc("220100");
-                            }
-                        }
-
-
-
-
-                        if (IsX_OK && IsY_OK)
-                        {
-                            IsY_OK = false;
-                            IsX_OK = false;
-                        }
-                    }
-
+                    IsGetPosition = true;
                 });
             }
+            this.Dispatcher.Invoke(new Action(() =>
+            {
+                if (resultList != null)
+                {
+                    ImageView.Source = UsingModel.GetRect(bitmapSource.ToMat(), resultList);
+                    resultList = null;
+                }
+                else
+                {
+                    ImageView.Source = bitmapSource;
+                }
+            }));
 
+            if(IsNextPosition && resultPoint.X != 10000 && resultPoint.Y != 10000)
+            {
+                IsReceivedPortMsg = true;
+            }
+
+            if (IsStartWork && serialPortService.IsOpen  && IsReceivedPortMsg && resultPoint.X != 10000 && resultPoint.Y != 10000)
+            {
+                AddLog("进入机械臂通信的部分");
+                float limit = 10;
+                oldPoint = resultPoint;
+                IsReceivedPortMsg = false;
+                oldPoint.Y = -oldPoint.Y;
+                // 计算偏移
+                float offsetX = oldPoint.X - OriginPoint.X;
+                float offsetY = oldPoint.Y - OriginPoint.Y;
+
+                Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            limit = int.Parse(MinRegion.Text);
+                        });
+                
+                // Y轴控制 
+                if (IsX_OK)
+                {
+                    if (offsetY > limit)
+                    {
+                        ControlMoveFunc("240101");
+                        //ControlMoveFunc("210101");
+                    }
+                    else if (offsetY < -limit)
+                    {
+                        ControlMoveFunc("250101");
+                        //ControlMoveFunc("200101");
+                    }
+                    else if (!IsY_OK )
+                    {
+                        IsY_OK = true;
+
+                        ControlMoveFunc("220101");
+                    }
+                }
+                else
+                {
+                    // X轴控制
+                    if (offsetX > limit)
+                    {
+                        //ControlMoveFunc("210100");
+                        ControlMoveFunc("240100");
+                    }
+                    else if (offsetX < -limit)
+                    {
+                        ControlMoveFunc("250100");
+                        //ControlMoveFunc("200100");
+                    }
+                    else if (!IsX_OK)
+                    {
+                        IsX_OK = true;
+                        ControlMoveFunc("220100");
+                    }
+                }
+                if (IsX_OK && IsY_OK && (offsetY > limit || offsetY < -limit || offsetX > limit|| offsetX < -limit) )
+                {
+                    IsY_OK = false;
+                    IsX_OK = false;
+                    IsNextPosition = true;
+                }
+            }
         }
         [DllImport("gdi32")]
         static extern int DeleteObject(IntPtr o);
@@ -407,11 +408,40 @@ namespace RobotHand_20260313
                 //命令类型 20前进 21 后退
                 // 数据长度 帧数据内容的长度    01
                 //数据内容 是哪个轴移动，00 x轴 01 y轴 02 z轴
-
+             
                 //string data = "200100";
                 string crc = UsingModel.CalculateCrc(data);
+               
                 string cmd = "FFE0" + data + crc + "FFE1";
+
+
                 await serialPortService.SendAsync(cmd);
+
+                if (data.Substring(0, 2) == "24")
+                {
+                    cmd = "向前——" + cmd;
+                }
+                else if (data.Substring(0, 2) == "25")
+                {
+                    cmd = "向后——" + cmd;
+                }
+                else if (data.Substring(0, 2) == "22")
+                {
+                    cmd = "停止——" + cmd;
+                }
+
+                if (data.Substring(4, 2) == "00")
+                {
+                    cmd = "X轴" + cmd;
+                }else if (data.Substring(4, 2) == "01")
+                {
+                    cmd = "Y轴" + cmd;
+                }
+                else if(data.Substring(4, 2) == "02")
+                {
+                    cmd = "Z轴" + cmd;
+                }
+
                 AddLog("发送：" + cmd);
             }
             catch (Exception ex)
@@ -428,12 +458,7 @@ namespace RobotHand_20260313
 
                 if (serialPortService.IsOpen)
                 {
-                    serialPortService.Close();
-
-                    SolidColorBrush newBrush = new SolidColorBrush(Colors.Red);
-                    portLight.Fill = newBrush;
-                    Connection.Content = "连接";
-                    AddLog("串口已断开");
+                    CLoseRobotPort();
                 }
                 else
                 {
@@ -452,6 +477,20 @@ namespace RobotHand_20260313
             }
         }
 
+        private void CLoseRobotPort()
+        {
+            serialPortService.Close();
+            Ellipse portLight = PortLight;
+
+            SolidColorBrush newBrush = new SolidColorBrush(Colors.Red);
+            portLight.Fill = newBrush;
+            Connection.Content = "连接";
+            ControlMoveFunc("220100");
+            ControlMoveFunc("220101");
+            ControlMoveFunc("220102");
+            AddLog("串口已断开");
+        }
+
         private void Btn_Start_Click(object sender, RoutedEventArgs e)
         {
             if (IsStartWork == false)
@@ -461,6 +500,7 @@ namespace RobotHand_20260313
                     AddLog("串口没有打开！");
                     return;
                 }
+                IsReceivedPortMsg = true;
                 IsStartWork = true;
                 Btn_Start.Content = "停止程序";
             }
@@ -468,7 +508,8 @@ namespace RobotHand_20260313
             {
                 IsStartWork = false;
                 Btn_Start.Content = "开始程序";
-                serialPortService.Close();
+                if(serialPortService.IsOpen)
+                CLoseRobotPort();
             }
 
         }
