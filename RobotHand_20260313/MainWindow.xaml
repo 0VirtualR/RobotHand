@@ -18,7 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition/>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <StackPanel Background="#F0F0F0" Orientation="Horizontal" >
             <Button Margin="30,0" Content="开始程序" Name="Btn_Start" Click="Btn_Start_Click"/>
@@ -69,7 +69,8 @@
                 </Grid>
                 <TextBlock Text="运行日志：" FontSize="22"  Margin="25,10"/>
                 <ListBox Name="LogBox"   Height="124"   Margin="10"/>
-                <TextBox TextWrapping="Wrap" x:Name="MinRegion" Text="-10" Width="120"/>
+                <TextBox TextWrapping="Wrap" x:Name="MinRegion" Text="10" Width="46"/>
+                <TextBox TextWrapping="Wrap" x:Name="PortInteral" Text="300" Width="46" TextChanged="PortInteral_TextChanged"/>
             </StackPanel>
         </Grid>
         <TextBlock Grid.Row="2" Name="TimeText"

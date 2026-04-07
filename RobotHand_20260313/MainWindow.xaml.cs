@@ -18,6 +18,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -54,6 +55,10 @@ namespace RobotHand_20260313
         private static Point2f OriginPoint = new Point2f(0, 0);
         private readonly ISerialPortService serialPortService;
 
+        // 定义计时器
+        private System.Timers.Timer _mechanicalArmTimer;
+        private readonly object _lockObj = new object();
+        // 初始化计时器
         public MainWindow()
         {
             InitializeComponent();
@@ -62,11 +67,168 @@ namespace RobotHand_20260313
             this.serialPortService = new SerialPortService();
             this.serialPortService.DataReceived += new Action<string>(ReceivcePortFunc);
         }
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MvApi.CameraGrabber_Destroy(m_Grabber);
+            if (serialPortService.IsOpen)
+            {
+                CLoseRobotPort();
+            }
+            _mechanicalArmTimer?.Dispose();
+        }
 
+        private void MainWindow_Load(object sender, RoutedEventArgs e)
+        {
+            m_FrameCallback = new pfnCameraGrabberFrameCallback(CameraGrabberFrameCallback);
+            InitCamera();
+
+            // 启动帧率统计定时器
+            m_StatTimer = new System.Windows.Threading.DispatcherTimer();
+            m_StatTimer.Interval = TimeSpan.FromSeconds(1);
+            m_StatTimer.Tick += timer1_Tick;
+            m_StatTimer.Start();
+            //定时往机械臂发送命令
+            // 从 TextBox 读取初始值，如果解析失败则使用默认值 300
+            double initialInterval = 300; // 默认值
+            if (double.TryParse(PortInteral.Text, out double parsedValue) && parsedValue > 0)
+            {
+                initialInterval = parsedValue;
+            }
+
+            _mechanicalArmTimer = new System.Timers.Timer(initialInterval);
+            _mechanicalArmTimer.Elapsed += OnMechanicalArmTimerElapsed;
+            _mechanicalArmTimer.AutoReset = true;
+            _mechanicalArmTimer.Start();
+        }
+
+
+        // 计时器触发的事件处理
+        private void OnMechanicalArmTimerElapsed(object sender, ElapsedEventArgs e)
+        {
+            // 避免重入
+            if (!Monitor.TryEnter(_lockObj))
+                return;
+
+            try
+            {
+                ProcessMechanicalArmControl();
+            }
+            catch (Exception ex)
+            {
+                AddLog($"机械臂控制异常: {ex.Message}");
+            }
+            finally
+            {
+                Monitor.Exit(_lockObj);
+            }
+        }
+        private void ProcessMechanicalArmControl()
+        {
+            // 检查条件：是否开始工作、串口是否打开、是否收到端口消息、结果点是否有效
+            if (!IsStartWork || !serialPortService.IsOpen  ||
+                resultPoint.X == 10000 || resultPoint.Y == 10000)
+            {
+                return;
+            }
+
+            AddLog("进入机械臂通信的部分");
+
+            float limit = 10;
+            oldPoint = resultPoint;
+            oldPoint.Y = -oldPoint.Y;
+
+            // 计算偏移
+            float offsetX = oldPoint.X - OriginPoint.X;
+            float offsetY = oldPoint.Y - OriginPoint.Y;
+
+
+         
+            // 从UI获取限制值（需要在UI线程执行）
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                if (int.TryParse(MinRegion.Text, out int minRegionValue))
+                {
+                    limit = minRegionValue;
+                }
+            });
+            if (Math.Abs(offsetX) < limit && Math.Abs(offsetY) < limit)
+            {
+                AddLog("已经到达目标点1");
+                return;
+            }
+           
+
+            if(Math.Abs(offsetX )> limit  || Math.Abs(offsetY) > limit)
+            {
+                if (Math.Abs(offsetX) > limit)
+                {
+                    if (offsetX > 0)
+                    {
+                        ControlMoveFunc("240100");
+                    }
+                    else 
+                    {
+                        ControlMoveFunc("250100");
+                    }
+                }
+                else
+                {
+                    if (offsetY > 0)
+                    {
+                        ControlMoveFunc("240101");
+                    }
+                    else 
+                    {
+                        ControlMoveFunc("250101");
+                    }
+                }
+            }
+            // Y轴控制
+            if (IsX_OK)
+            {
+                if (offsetY > limit)
+                {
+                    ControlMoveFunc("240101");
+                }
+                else if (offsetY < -limit)
+                {
+                    ControlMoveFunc("250101");
+                }
+                else if (!IsY_OK)
+                {
+                    IsY_OK = true;
+                    ControlMoveFunc("220101");
+                }
+            }
+            else
+            {
+                // X轴控制
+                if (offsetX > limit)
+                {
+                    ControlMoveFunc("240100");
+                }
+                else if (offsetX < -limit)
+                {
+                    ControlMoveFunc("250100");
+                }
+                else if (!IsX_OK)
+                {
+                    IsX_OK = true;
+                    ControlMoveFunc("220100");
+                }
+            }
+
+            // 重置状态标志
+            if (IsX_OK && IsY_OK)
+            {
+                IsY_OK = false;
+                IsX_OK = false;
+            }
+        }
         private void ReceivcePortFunc(string obj)
         {
-            AddLog("接收到串口返回数据：" + obj);
-            IsReceivedPortMsg = true;
+            //AddLog("接收到串口返回数据：" + obj);
+            //IsReceivedPortMsg = true;
         }
 
         private void InitApp()
@@ -95,26 +257,7 @@ namespace RobotHand_20260313
             ComboBoxRate.ItemsSource = RateAll;
 
         }
-        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            MvApi.CameraGrabber_Destroy(m_Grabber);
-            if (serialPortService.IsOpen)
-            {
-                CLoseRobotPort();
-            }
-        }
 
-        private void MainWindow_Load(object sender, RoutedEventArgs e)
-        {
-            m_FrameCallback = new pfnCameraGrabberFrameCallback(CameraGrabberFrameCallback);
-            InitCamera();
-
-            // 启动帧率统计定时器
-            m_StatTimer = new System.Windows.Threading.DispatcherTimer();
-            m_StatTimer.Interval = TimeSpan.FromSeconds(1);
-            m_StatTimer.Tick += timer1_Tick;
-            m_StatTimer.Start();
-        }
 
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -144,10 +287,10 @@ namespace RobotHand_20260313
         private Point2f oldPoint = new Point2f();
         private bool IsStartWork = false;
         private bool IsX_OK = false;
-        private bool IsNextPosition=false;
         private bool IsY_OK = false;
-        private bool IsReceivedPortMsg;
 
+  
+        
         public string SnapPicture()
         {
             try
@@ -179,7 +322,8 @@ namespace RobotHand_20260313
                 return "";
             }
         }
-
+        [DllImport("gdi32")]
+        static extern int DeleteObject(IntPtr o);
         private void CameraGrabberFrameCallback(
         IntPtr Grabber,
         IntPtr pFrameBuffer,
@@ -196,136 +340,83 @@ namespace RobotHand_20260313
             // pFrameBuffer=BGR24数据
 
             // 执行一次GC，释放出内存
-            GC.Collect();
+            //GC.Collect();
 
             // 由于SDK输出的数据默认是从底到顶的，转换为Bitmap需要做一下垂直镜像  这儿是如何知道需要做垂直镜像的
             //修改了原始相机提供的demo WpfFirstStep 不在初始化相机时进行垂直镜像，
             //而在CameraGrabberFrameCallback中使用CameraFlipFrameBuffer函数镜像，
             //原始demo中相机画面显示正常，但是拍出来的图片不正常，存在左右镜像情况
-            MvApi.CameraFlipFrameBuffer(pFrameBuffer, ref pFrameHead, 1);
-
-            int w = pFrameHead.iWidth;
-            int h = pFrameHead.iHeight;
-            Boolean gray = (pFrameHead.uiMediaType == (uint)MVSDK.emImageFormat.CAMERA_MEDIA_TYPE_MONO8);
-            Bitmap Image = new Bitmap(w, h,
-                gray ? w : w * 3,
-                gray ? System.Drawing.Imaging.PixelFormat.Format8bppIndexed : System.Drawing.Imaging.PixelFormat.Format24bppRgb,
-                pFrameBuffer);
-
-            // 如果是灰度图要设置调色板
-            if (gray)
+            try
             {
-                Image.Palette = m_GrayPal;
-            }
+                MvApi.CameraFlipFrameBuffer(pFrameBuffer, ref pFrameHead, 1);
+                GobalInfo.OriginVideoWidth = pFrameHead.iWidth;
+                GobalInfo.OriginVideoHeight = pFrameHead.iHeight;
+                GobalInfo.VideoWidth = pFrameHead.iWidth / GobalInfo.BeiShu;
+                GobalInfo.VideoHeight = pFrameHead.iHeight / GobalInfo.BeiShu;
+                Boolean gray = (pFrameHead.uiMediaType == (uint)MVSDK.emImageFormat.CAMERA_MEDIA_TYPE_MONO8);
+                //IntPtr newBuffer = ImageLow.LowInPtr(pFrameBuffer, gray);
+                //Bitmap Image = new Bitmap(GobalInfo.VideoWidth, GobalInfo.VideoHeight,
+                //    gray ? GobalInfo.VideoWidth : GobalInfo.VideoWidth * 3,
+                //    gray ? System.Drawing.Imaging.PixelFormat.Format8bppIndexed : System.Drawing.Imaging.PixelFormat.Format24bppRgb,
+                //    newBuffer);
 
-            IntPtr hBitmap = Image.GetHbitmap();
-            BitmapSource bitmapSource = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
-                hBitmap, IntPtr.Zero, Int32Rect.Empty,
-                System.Windows.Media.Imaging.BitmapSizeOptions.FromEmptyOptions());
-            bitmapSource.Freeze();
-            DeleteObject(hBitmap);
 
-          
+                Bitmap Image = new Bitmap(GobalInfo.OriginVideoWidth, GobalInfo.OriginVideoHeight,
+                  gray ? GobalInfo.OriginVideoWidth : GobalInfo.OriginVideoWidth * 3,
+                  gray ? System.Drawing.Imaging.PixelFormat.Format8bppIndexed : System.Drawing.Imaging.PixelFormat.Format24bppRgb,
+                  pFrameBuffer);
 
-            if (IsStartWork && IsGetPosition)
-            {
-                IsGetPosition = false;
-                // 在子线程中执行
-                Task.Run(() =>
+                //如果是灰度图要设置调色板
+                if (gray)
                 {
-                    
-                    ResultModel resultModel = UsingModel.ODRecognition(bitmapSource.ToMat());
-                    resultList = resultModel.resultsyolov8;
-                    resultPoint = resultModel.point2F;
-
-                    AddLog("X:" + resultModel.point2F.X + "_Y:" + resultModel.point2F.Y);
-
-                    IsGetPosition = true;
-                });
-            }
-            this.Dispatcher.Invoke(new Action(() =>
-            {
-                if (resultList != null)
-                {
-                    ImageView.Source = UsingModel.GetRect(bitmapSource.ToMat(), resultList);
-                    resultList = null;
+                    Image.Palette = m_GrayPal;
                 }
-                else
+                IntPtr hBitmap = Image.GetHbitmap();
+                BitmapSource bitmapSource = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
+                    hBitmap, IntPtr.Zero, Int32Rect.Empty,
+                    System.Windows.Media.Imaging.BitmapSizeOptions.FromEmptyOptions());
+                bitmapSource.Freeze();
+                DeleteObject(hBitmap);
+
+             
+
+                if (IsStartWork && IsGetPosition)
                 {
-                    ImageView.Source = bitmapSource;
-                }
-            }));
-
-            if(IsNextPosition && resultPoint.X != 10000 && resultPoint.Y != 10000)
-            {
-                IsReceivedPortMsg = true;
-            }
-
-            if (IsStartWork && serialPortService.IsOpen  && IsReceivedPortMsg && resultPoint.X != 10000 && resultPoint.Y != 10000)
-            {
-                AddLog("进入机械臂通信的部分");
-                float limit = 10;
-                oldPoint = resultPoint;
-                IsReceivedPortMsg = false;
-                oldPoint.Y = -oldPoint.Y;
-                // 计算偏移
-                float offsetX = oldPoint.X - OriginPoint.X;
-                float offsetY = oldPoint.Y - OriginPoint.Y;
-
-                Application.Current.Dispatcher.Invoke(() =>
-                        {
-                            limit = int.Parse(MinRegion.Text);
-                        });
                 
-                // Y轴控制 
-                if (IsX_OK)
-                {
-                    if (offsetY > limit)
+                    IsGetPosition = false;
+                    // 在子线程中执行
+                    Task.Run(() =>
                     {
-                        ControlMoveFunc("240101");
-                        //ControlMoveFunc("210101");
-                    }
-                    else if (offsetY < -limit)
-                    {
-                        ControlMoveFunc("250101");
-                        //ControlMoveFunc("200101");
-                    }
-                    else if (!IsY_OK )
-                    {
-                        IsY_OK = true;
 
-                        ControlMoveFunc("220101");
-                    }
+                        ResultModel resultModel = UsingModel.ODRecognition(bitmapSource.ToMat());
+                        resultList = resultModel.resultsyolov8;
+                        resultPoint = resultModel.point2F;
+
+                        AddLog("X:" + resultModel.point2F.X + "_Y:" + resultModel.point2F.Y);
+
+                        IsGetPosition = true;
+                    });
                 }
-                else
+                this.Dispatcher.Invoke(new Action(() =>
                 {
-                    // X轴控制
-                    if (offsetX > limit)
+                    if (resultList != null)
                     {
-                        //ControlMoveFunc("210100");
-                        ControlMoveFunc("240100");
+                        ImageView.Source = UsingModel.GetRect(bitmapSource, resultList);
+                        resultList = null;
                     }
-                    else if (offsetX < -limit)
+                    else
                     {
-                        ControlMoveFunc("250100");
-                        //ControlMoveFunc("200100");
+
+                        ImageView.Source = bitmapSource;
                     }
-                    else if (!IsX_OK)
-                    {
-                        IsX_OK = true;
-                        ControlMoveFunc("220100");
-                    }
-                }
-                if (IsX_OK && IsY_OK && (offsetY > limit || offsetY < -limit || offsetX > limit|| offsetX < -limit) )
-                {
-                    IsY_OK = false;
-                    IsX_OK = false;
-                    IsNextPosition = true;
-                }
+                }));
+            }catch(Exception ex)
+            {
+                AddLog("报错："+ex.Message);
+                LogHelper.WriteOrderLog(ex.ToString());
             }
         }
-        [DllImport("gdi32")]
-        static extern int DeleteObject(IntPtr o);
+
 
         private void InitCamera()
         {
@@ -404,6 +495,7 @@ namespace RobotHand_20260313
         {
             try
             {
+                if (!serialPortService.IsOpen) return;
                 // 命令类型	数据长度	数据内容
                 //命令类型 20前进 21 后退
                 // 数据长度 帧数据内容的长度    01
@@ -479,15 +571,17 @@ namespace RobotHand_20260313
 
         private void CLoseRobotPort()
         {
+
+            ControlMoveFunc("220100");
+            ControlMoveFunc("220101");
+            ControlMoveFunc("220102");
             serialPortService.Close();
             Ellipse portLight = PortLight;
 
             SolidColorBrush newBrush = new SolidColorBrush(Colors.Red);
             portLight.Fill = newBrush;
             Connection.Content = "连接";
-            ControlMoveFunc("220100");
-            ControlMoveFunc("220101");
-            ControlMoveFunc("220102");
+           
             AddLog("串口已断开");
         }
 
@@ -500,7 +594,6 @@ namespace RobotHand_20260313
                     AddLog("串口没有打开！");
                     return;
                 }
-                IsReceivedPortMsg = true;
                 IsStartWork = true;
                 Btn_Start.Content = "停止程序";
             }
@@ -519,6 +612,19 @@ namespace RobotHand_20260313
 
             var initform = new InitCamera(this);
             initform.Show();
+        }
+
+        private void PortInteral_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (_mechanicalArmTimer == null) return;
+            if (double.TryParse(PortInteral.Text, out double newInterval) && newInterval > 0)
+            {
+                // 直接修改 Interval 属性，Timer 会自动生效
+                _mechanicalArmTimer.Interval = newInterval;
+
+                // 可选：显示当前状态（如果你有状态栏）
+                // StatusTextBlock.Text = $"Timer间隔已更新为 {newInterval} 毫秒";
+            }
         }
     }
 }

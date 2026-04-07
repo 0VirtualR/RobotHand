@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SerialApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1000">
     <Grid>
-        <Grid Margin="38,51,422,187">
+        <Grid Margin="38,51,616,187">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
@@ -40,17 +40,23 @@
             <Button HorizontalAlignment="Center" Content="连接" FontSize="20" Width="100" Background="#0077C0" Foreground="White" BorderBrush="#003C60" BorderThickness="0" Margin="66,15,63,9"  Grid.Row="2" Grid.Column="3" Click="ConnectPort_Click" x:Name="Connection"/>
             <Ellipse Width="30" Height="30" Fill="Red" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" x:Name="PortLight" Margin="35,13,3.266,13"/>
         </Grid>
-        <TextBlock Text="运行日志：" FontSize="22"  Margin="24,247,476,144"/>
-        <ListBox x:Name="LogBox"   Margin="10,289,460,15"/>
-        <Button Content="X轴向前" HorizontalAlignment="Left" Margin="385,51,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Up_Click"/>
-        <Button Content="X轴向后" HorizontalAlignment="Left" Margin="385,113,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Down_Click"/>
-        <Button Content="Y轴向前" HorizontalAlignment="Left" Margin="385,175,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Up_Click"/>
-        <Button Content="Y轴向后" HorizontalAlignment="Left" Margin="385,237,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Down_Click"/>
-        <Button Content="Z轴向上" HorizontalAlignment="Left" Margin="385,295,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Up_Click"/>
-        <Button Content="Z轴向下" HorizontalAlignment="Left" Margin="385,357,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Down_Click"/>
-        <Button Content="X轴停止" HorizontalAlignment="Left" Margin="565,51,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Stop_Click"/>
-        <Button Content="Y轴停止" HorizontalAlignment="Left" Margin="565,175,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Stop_Click"/>
-        <Button Content="Z轴停止" HorizontalAlignment="Left" Margin="565,295,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Stop_Click"/>
+        <TextBlock Text="运行日志：" FontSize="22"  Margin="24,247,668,144"/>
+        <ListBox x:Name="LogBox"   Margin="10,289,668,15"/>
+        <Button Content="X轴向前" HorizontalAlignment="Left" Margin="647,61,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Up_Click"/>
+        <Button Content="X轴向后" HorizontalAlignment="Left" Margin="647,123,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Down_Click"/>
+        <Button Content="Y轴向前" HorizontalAlignment="Left" Margin="647,185,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Up_Click"/>
+        <Button Content="Y轴向后" HorizontalAlignment="Left" Margin="647,247,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Down_Click"/>
+        <Button Content="Z轴向上" HorizontalAlignment="Left" Margin="647,305,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Up_Click"/>
+        <Button Content="Z轴向下" HorizontalAlignment="Left" Margin="647,367,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Down_Click"/>
+        <Button Content="X轴停止" HorizontalAlignment="Left" Margin="827,61,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="X_Stop_Click"/>
+        <Button Content="Y轴停止" HorizontalAlignment="Left" Margin="827,185,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Y_Stop_Click"/>
+        <Button Content="Z轴停止" HorizontalAlignment="Left" Margin="827,305,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="Z_Stop_Click"/>
+        <TextBox x:Name="TxtLength" HorizontalAlignment="Left" Margin="532,74,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="47" Height="26"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="411,79,0,0" TextWrapping="Wrap" Text="向前移动距离(毫米)：" VerticalAlignment="Top"/>
+        <Button Content="切换模式"  HorizontalAlignment="Center" Margin="0,114,0,0" VerticalAlignment="Top" Width="159" Height="28" Click="BtnState_Click"/>
+        <TextBlock HorizontalAlignment="Center" x:Name="BtnState" Margin="0,324,0,0" TextWrapping="Wrap" Text="匀速模式" VerticalAlignment="Top" Foreground="Green" FontSize="22" Height="32" Width="108"/>
+        <TextBox HorizontalAlignment="Left" Margin="457,217,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="457,192,0,0" TextWrapping="Wrap" Text="串口通信时间间隔：" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

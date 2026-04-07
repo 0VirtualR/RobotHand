@@ -148,7 +148,7 @@ namespace RobotHand_20260313.SerialPorts
                 {
                     byte[] data = ConvertHexToBytes(hexData);
                     await Task.Run(() => _serialPort.Write(data, 0, data.Length));
-                    LogHelper.WriteOrderLog($"发送数据: {hexData}");
+                    //LogHelper.WriteOrderLog($"发送数据: {hexData}");
                 }
                 else
                 {

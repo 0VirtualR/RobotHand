@@ -59,6 +59,7 @@
     <Compile Include="SerialPorts\ISerialPortService.cs" />
     <Compile Include="SerialPorts\SerialPortDetector.cs" />
     <Compile Include="SerialPorts\SerialPortService.cs" />
+    <Compile Include="Tools\FloatToByteConverter.cs" />
     <Compile Include="Tools\LogHelper.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

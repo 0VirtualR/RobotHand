@@ -11,6 +11,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Text.RegularExpressions;
 using System.IO;
+using RobotHand_20260313.Tools;
 
 
 
@@ -57,38 +58,46 @@ namespace RobotHand_20260313.Extensions
 
         public void modelInitializeyolov8(out InferRequest iryolov8, out Sdcb.OpenVINO.Shape inputShapeyolov8, out string[] dictsyolov8)
         {
-
-            string modelFile = System.IO.Path.Combine(basePathModel, "zhujiao_1222.xml");
-            string dicts1 = XDocument.Load(modelFile).XPathSelectElement(@"/net/rt_info/framework/names")?.Attribute("value")?.Value;
-
-            MatchCollection matches = Regex.Matches(dicts1, @"(\d+): '([^']+)'");
-            // 保存提取的数字和对应的值
-            List<string> dictList = new List<string>();
-            foreach (Match match in matches)
+            iryolov8 = null;
+            inputShapeyolov8 = default;
+            dictsyolov8 = null;
+            try
             {
-                string value = match.Groups[2].Value;
-                string keyValue = $"{value}";
-                dictList.Add(keyValue);
-            }
+                string modelFile = System.IO.Path.Combine(basePathModel, "zhujiao_1222.xml");
+                string dicts1 = XDocument.Load(modelFile).XPathSelectElement(@"/net/rt_info/framework/names")?.Attribute("value")?.Value;
 
-            // 将列表转换为字符串数组
-            dictsyolov8 = dictList.ToArray();
+                MatchCollection matches = Regex.Matches(dicts1, @"(\d+): '([^']+)'");
+                // 保存提取的数字和对应的值
+                List<string> dictList = new List<string>();
+                foreach (Match match in matches)
+                {
+                    string value = match.Groups[2].Value;
+                    string keyValue = $"{value}";
+                    dictList.Add(keyValue);
+                }
+
+                // 将列表转换为字符串数组
+                dictsyolov8 = dictList.ToArray();
 
 
 
-            // 模型
-            rawModelyolov8 = OVCore.Shared.ReadModel(modelFile);
-            PrePostProcessor pp = rawModelyolov8.CreatePrePostProcessor();
-            using (PreProcessInputInfo inputInfo = pp.Inputs.Primary)
+                // 模型
+                rawModelyolov8 = OVCore.Shared.ReadModel(modelFile);
+                PrePostProcessor pp = rawModelyolov8.CreatePrePostProcessor();
+                using (PreProcessInputInfo inputInfo = pp.Inputs.Primary)
+                {
+
+                    inputInfo.TensorInfo.Layout = Sdcb.OpenVINO.Layout.NHWC;
+                    inputInfo.ModelInfo.Layout = Sdcb.OpenVINO.Layout.NCHW;
+                }
+                Model m = pp.BuildModel();
+                CompiledModel cm = OVCore.Shared.CompileModel(m, "CPU");
+                iryolov8 = cm.CreateInferRequest();
+                inputShapeyolov8 = m.Inputs.Primary.Shape;
+            }catch(Exception ex)
             {
-
-                inputInfo.TensorInfo.Layout = Sdcb.OpenVINO.Layout.NHWC;
-                inputInfo.ModelInfo.Layout = Sdcb.OpenVINO.Layout.NCHW;
+                LogHelper.WriteOrderLog(ex.ToString());
             }
-            Model m = pp.BuildModel();
-            CompiledModel cm = OVCore.Shared.CompileModel(m, "CPU");
-            iryolov8 = cm.CreateInferRequest();
-            inputShapeyolov8 = m.Inputs.Primary.Shape;
             //return (iryolov8,inputShapeyolov8);
         }
 

@@ -1,0 +1,15 @@
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\bin\Release\SerialApp.exe.config
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\bin\Release\SerialApp.exe
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\bin\Release\SerialApp.pdb
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\SerialApp.csproj.AssemblyReference.cache
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\MainWindow.g.cs
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\App.g.cs
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\SerialApp_MarkupCompile.cache
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\SerialApp_MarkupCompile.lref
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\MainWindow.baml
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\SerialApp.g.resources
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\SerialApp.Properties.Resources.resources
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\SerialApp.csproj.GenerateResource.cache
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\SerialApp.csproj.CoreCompileInputs.cache
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\SerialApp.exe
+E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\SerialApp\obj\Release\SerialApp.pdb

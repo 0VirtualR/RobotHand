@@ -1,4 +1,5 @@
-﻿using SerialApp.SerialPorts;
+﻿using SerialApp.Extensions;
+using SerialApp.SerialPorts;
 using SerialApp.Tools;
 using System;
 using System.Collections.Generic;
@@ -25,9 +26,9 @@ namespace SerialApp
     {
         private readonly ISerialPortService serialPortService;
 
-       
-         
-            public MainWindow()
+        public bool IsLengthMethod=true;
+
+        public MainWindow()
         {
             InitializeComponent();
             this.serialPortService = new SerialPortService();
@@ -210,8 +211,18 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("240100");
-                //ControlMoveFunc("200100");
+                if (IsLengthMethod)
+                {
+                    float len = float.Parse(TxtLength.Text);
+                    
+                    ControlMoveFunc("260500"+FloatToByteConverter.FloatToBigEndianHex(len));
+                }
+                else
+                {
+
+                    ControlMoveFunc("240100");
+                    //ControlMoveFunc("200100");
+                }
             }
         }
 
@@ -219,8 +230,18 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("250100");
-                //ControlMoveFunc("210100");
+                if (IsLengthMethod)
+                {
+                    float len = float.Parse(TxtLength.Text);
+
+                    ControlMoveFunc("270500" + FloatToByteConverter.FloatToBigEndianHex(len));
+                }
+                else
+                {
+                    ControlMoveFunc("250100");
+                    //ControlMoveFunc("210100");
+                }
+
             }
         }
 
@@ -228,8 +249,18 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("240101");
-                //ControlMoveFunc("200101");
+                if (IsLengthMethod)
+                {
+                    float len = float.Parse(TxtLength.Text);
+
+                    ControlMoveFunc("260501" + FloatToByteConverter.FloatToBigEndianHex(len));
+                }
+                else
+                {
+                    ControlMoveFunc("240101");
+                    //ControlMoveFunc("200101");
+                }
+
             }
         }
 
@@ -237,8 +268,18 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("250101");
-                //ControlMoveFunc("210101");
+                if (IsLengthMethod)
+                {
+                    float len = float.Parse(TxtLength.Text);
+
+                    ControlMoveFunc("270501" + FloatToByteConverter.FloatToBigEndianHex(len));
+                }
+                else
+                {
+                    ControlMoveFunc("250101");
+                    //ControlMoveFunc("210101");
+                }
+
             }
         }
 
@@ -246,8 +287,18 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("250102");
-                //ControlMoveFunc("200102");
+                if (IsLengthMethod)
+                {
+                    float len = float.Parse(TxtLength.Text);
+
+                    ControlMoveFunc("260502" + FloatToByteConverter.FloatToBigEndianHex(len));
+                }
+                else
+                {
+                    ControlMoveFunc("250102");
+                    //ControlMoveFunc("200102");
+                }
+
             }
         }
 
@@ -255,8 +306,18 @@ namespace SerialApp
         {
             if (serialPortService.IsOpen)
             {
-                ControlMoveFunc("240102");
-                //ControlMoveFunc("210102");
+                if (IsLengthMethod)
+                {
+                    float len = float.Parse(TxtLength.Text);
+
+                    ControlMoveFunc("270502" + FloatToByteConverter.FloatToBigEndianHex(len));
+                }
+                else
+                {
+                    ControlMoveFunc("240102");
+                    //ControlMoveFunc("210102");
+                }
+
             }
         }
 
@@ -273,6 +334,23 @@ namespace SerialApp
         private void Z_Stop_Click(object sender, RoutedEventArgs e)
         {
             ControlMoveFunc("220102");
+        }
+
+
+
+        private void BtnState_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsLengthMethod)
+            {
+                IsLengthMethod = false;
+                BtnState.Text = "匀速模式";
+                
+            }
+            else
+            {
+                IsLengthMethod = true;
+                BtnState.Text = "长度模式";
+            }
         }
     }
 }

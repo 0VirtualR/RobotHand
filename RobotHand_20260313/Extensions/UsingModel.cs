@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using OpenCvSharp;
 using OpenCvSharp.WpfExtensions;
+using RobotHand_20260313.Tools;
 using RobotHand_20260313.Views;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,10 @@ namespace RobotHand_20260313.Extensions
 {
     public class ResultModel
     {
-       public DetectionResultYolov8OD[] resultsyolov8;
-      public  Point2f point2F=new Point2f(10000,10000);
+        public DetectionResultYolov8OD[] resultsyolov8;
+        public Point2f point2F = new Point2f(10000, 10000);
     }
-   public class UsingModel
+    public class UsingModel
     {
         // 原算法实现，未做任何改动
         // CRC-16/XMODEM 算法（CCITT标准，多项式0x1021，左移逐位处理）
@@ -66,19 +67,19 @@ namespace RobotHand_20260313.Extensions
             }
             return bytes;
         }
-
+       
         // 新增的便捷方法：直接传入十六进制字符串
         public static string CalculateCrc(string hex)
         {
 
             byte[] datalist = HexStringToBytes(hex);
 
-           return  ComputeCrcXmodem(datalist).ToString("X4");
+            return ComputeCrcXmodem(datalist).ToString("X4");
         }
 
-        public static BitmapSource GetRect(Mat mat,DetectionResultYolov8OD[] resultsyolov8)
+        public static BitmapSource GetRect(BitmapSource bitmapSource, DetectionResultYolov8OD[] resultsyolov8)
         {
-           
+            Mat mat = bitmapSource.ToMat();
             // 如果有检测结果，绘制矩形
             if (resultsyolov8 != null && resultsyolov8.Length > 0)
             {
@@ -90,7 +91,7 @@ namespace RobotHand_20260313.Extensions
                         new OpenCvSharp.Point(rect.X, rect.Y),
                         new OpenCvSharp.Point(rect.X + rect.Width, rect.Y + rect.Height),
                         Scalar.Green, // 红色
-                       5 // 线宽
+                       3 // 线宽
                     );
 
                     // 可选：绘制置信度和标签
@@ -121,48 +122,50 @@ namespace RobotHand_20260313.Extensions
             ResultModel resultModel = new ResultModel();
 
 
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-
-
-            resultModel.resultsyolov8 = pictureRecognitionYolov8.GetODDetResult(src);
-            stopwatch.Stop();
-
-            Console.WriteLine($"获取并裁剪旋转目标检测结果：{stopwatch.ElapsedMilliseconds} 毫秒");
-
-            foreach (DetectionResultYolov8OD result in resultModel.resultsyolov8)
+            try
             {
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
 
 
+                resultModel.resultsyolov8 = pictureRecognitionYolov8.GetODDetResult(src);
+                stopwatch.Stop();
 
-                OpenCvSharp.Rect rect = result.Rect;
+                LogHelper.WriteOrderLog($"获取并裁剪旋转目标检测结果：{stopwatch.ElapsedMilliseconds} 毫秒");            //Console.WriteLine($"获取并裁剪旋转目标检测结果：{stopwatch.ElapsedMilliseconds} 毫秒");
 
-                int x1 = rect.X;
-                int y1 = rect.Y;
-                int x2 = rect.X + rect.Width;
-                int y2 = rect.Y + rect.Height;
-
-                Console.WriteLine(
-                    $"[YOLO] class={result.Class}, conf={result.Confidence:F2}, " +
-                    $"xyxy=({x1},{y1},{x2},{y2})");
-
-                Mat roi = new Mat(src, rect);
-
-                Point2f? center = pictureRecognitionYolov8.RefineCenter(roi, x1, y1, debug: true);
-
-                if (!center.HasValue)
+                foreach (DetectionResultYolov8OD result in resultModel.resultsyolov8)
                 {
-                    Console.WriteLine("[WARN] RefineCenter failed.");
-                    continue;
-                }
 
-                Point2f c = center.Value;
-                Console.WriteLine($"[OK] Final center = ({c.X:F2}, {c.Y:F2})");
 
-                var (imgPts, startPixel) = LoadCalibration("calibration.json");
 
-                Point2f[] worldPts =
-                               {
+                    OpenCvSharp.Rect rect = result.Rect;
+
+                    int x1 = rect.X;
+                    int y1 = rect.Y;
+                    int x2 = rect.X + rect.Width;
+                    int y2 = rect.Y + rect.Height;
+
+                    Console.WriteLine(
+                        $"[YOLO] class={result.Class}, conf={result.Confidence:F2}, " +
+                        $"xyxy=({x1},{y1},{x2},{y2})");
+
+                    Mat roi = new Mat(src, rect);
+
+                    Point2f? center = pictureRecognitionYolov8.RefineCenter(roi, x1, y1, debug: true);
+
+                    if (!center.HasValue)
+                    {
+                        Console.WriteLine("[WARN] RefineCenter failed.");
+                        continue;
+                    }
+
+                    Point2f c = center.Value;
+                    Console.WriteLine($"[OK] Final center = ({c.X:F2}, {c.Y:F2})");
+
+                    var (imgPts, startPixel) = LoadCalibration("calibration.json");
+
+                    Point2f[] worldPts =
+                                   {
                     new Point2f(0, 0),
                     new Point2f(8, 0),
                     new Point2f(16, 0),
@@ -174,24 +177,28 @@ namespace RobotHand_20260313.Extensions
                     new Point2f(16, 16)
                 };
 
-                Point2f centerPixel = new Point2f(c.X, c.Y);//1215, 1064  c.X, c.Y
-              
-                if (pictureRecognitionYolov8.ComputeDeltaByHomography(
-                            imgPts,
-                            worldPts,
-                            centerPixel,
-                            startPixel,
-                            out Point2f deltaMm,
-                            debug: true))
-                {
-                    resultModel.point2F.X = deltaMm.X;
-                    resultModel.point2F.Y = deltaMm.Y;
-                    //Console.WriteLine( $"[RESULT] Move ΔX={deltaMm.X:F4} mm, ΔY={deltaMm.Y:F4} mm");
-                }
-              
+                    Point2f centerPixel = new Point2f(c.X, c.Y);//1215, 1064  c.X, c.Y
 
+                    if (pictureRecognitionYolov8.ComputeDeltaByHomography(
+                                imgPts,
+                                worldPts,
+                                centerPixel,
+                                startPixel,
+                                out Point2f deltaMm,
+                                debug: true))
+                    {
+                        resultModel.point2F.X = deltaMm.X;
+                        resultModel.point2F.Y = deltaMm.Y;
+                        //Console.WriteLine( $"[RESULT] Move ΔX={deltaMm.X:F4} mm, ΔY={deltaMm.Y:F4} mm");
+                    }
+
+
+                }
             }
-          
+            catch (Exception ex)
+            {
+                LogHelper.WriteOrderLog(ex.ToString());
+            }
             return resultModel;
             //return anySuccess;
         }
