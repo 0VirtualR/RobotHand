@@ -125,24 +125,24 @@ namespace RobotHand_20260313
         private void ProcessMechanicalArmControl()
         {
             // 检查条件：是否开始工作、串口是否打开、是否收到端口消息、结果点是否有效
-            if (!IsStartWork || !serialPortService.IsOpen  ||
+            if (!IsStartWork || !serialPortService.IsOpen ||
                 resultPoint.X == 10000 || resultPoint.Y == 10000)
             {
                 return;
             }
 
-            AddLog("进入机械臂通信的部分");
-
             float limit = 10;
+
+            if (IsUseLengthPort&& oldPoint.X == resultPoint.X && -oldPoint.Y==resultPoint.Y)
+            {
+                IsLengthXY_OK = false;
+            }
             oldPoint = resultPoint;
             oldPoint.Y = -oldPoint.Y;
 
             // 计算偏移
             float offsetX = oldPoint.X - OriginPoint.X;
             float offsetY = oldPoint.Y - OriginPoint.Y;
-
-
-         
             // 从UI获取限制值（需要在UI线程执行）
             Application.Current.Dispatcher.Invoke(() =>
             {
@@ -151,84 +151,111 @@ namespace RobotHand_20260313
                     limit = minRegionValue;
                 }
             });
-            if (Math.Abs(offsetX) < limit && Math.Abs(offsetY) < limit)
-            {
-                AddLog("已经到达目标点1");
-                return;
-            }
-           
 
-            if(Math.Abs(offsetX )> limit  || Math.Abs(offsetY) > limit)
+            AddLog("X:" + oldPoint.X + "_Y:" + oldPoint.Y);
+            if (!IsUseLengthPort)
             {
-                if (Math.Abs(offsetX) > limit)
+                if (IsX_OK && IsY_OK)
                 {
-                    if (offsetX > 0)
+                    //string s = FloatToByteConverter.FloatToLittleEndianHex(70);
+                    //ControlMoveFunc("260101" + s);
+
+                    if (Math.Abs(offsetY) >= limit || Math.Abs(offsetX) > limit)
+                    {
+                        IsY_OK = false;
+                        IsX_OK = false;
+                        AddLog("出现新的目标点");
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+                }
+                // Y轴控制
+                if (IsX_OK)
+                {
+                    if (!IsY_OK)
+                    {
+                        if (!IsY_OK && Math.Abs(offsetY) < limit)
+                        {
+                            IsY_OK = true;
+                            ControlMoveFunc("220101");
+                        }
+                        else if (offsetY > 0)
+                        {
+                            ControlMoveFunc("240101");
+                        }
+                        else
+                        {
+                            ControlMoveFunc("250101");
+                        }
+                    }
+
+
+                }
+                else
+                {
+                    if (!IsX_OK && Math.Abs(offsetX) < limit)
+                    {
+                        IsX_OK = true;
+                        ControlMoveFunc("220100");
+                    }
+                    else if (offsetX > 0)
                     {
                         ControlMoveFunc("240100");
                     }
-                    else 
+                    else
                     {
                         ControlMoveFunc("250100");
                     }
                 }
-                else
-                {
-                    if (offsetY > 0)
-                    {
-                        ControlMoveFunc("240101");
-                    }
-                    else 
-                    {
-                        ControlMoveFunc("250101");
-                    }
-                }
-            }
-            // Y轴控制
-            if (IsX_OK)
-            {
-                if (offsetY > limit)
-                {
-                    ControlMoveFunc("240101");
-                }
-                else if (offsetY < -limit)
-                {
-                    ControlMoveFunc("250101");
-                }
-                else if (!IsY_OK)
-                {
-                    IsY_OK = true;
-                    ControlMoveFunc("220101");
-                }
+
             }
             else
             {
-                // X轴控制
-                if (offsetX > limit)
+
+                if (Math.Abs(offsetY)< limit && Math.Abs(offsetX) < limit)
                 {
-                    ControlMoveFunc("240100");
+                 
+                    return;
                 }
-                else if (offsetX < -limit)
+
+
+                if (!IsLengthXY_OK)
                 {
-                    ControlMoveFunc("250100");
+                    IsLengthXY_OK = true;
+                    string xstr = "";
+                    string ystr = "";
+                    if (offsetX > 0)
+                    {
+                        xstr = "01";
+                    }
+                    else
+                    {
+                        xstr = "02";
+                    }
+                    if (offsetY > 0)
+                    {
+                        ystr = "01";
+                    }
+                    else
+                    {
+                        ystr = "02";
+                    }
+                    xstr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetX));
+                    ystr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetY));
+                    ControlMoveFunc("280A" + xstr + ystr);
                 }
-                else if (!IsX_OK)
-                {
-                    IsX_OK = true;
-                    ControlMoveFunc("220100");
-                }
+
             }
 
-            // 重置状态标志
-            if (IsX_OK && IsY_OK)
-            {
-                IsY_OK = false;
-                IsX_OK = false;
-            }
+
         }
         private void ReceivcePortFunc(string obj)
         {
             //AddLog("接收到串口返回数据：" + obj);
-            //IsReceivedPortMsg = true;
+            //GobalInfo.IsX_LengthOK = true;
         }
 
         private void InitApp()
@@ -283,14 +310,14 @@ namespace RobotHand_20260313
 
         }
         DetectionResultYolov8OD[] resultList = null;
-        private Point2f resultPoint = new Point2f(10000,10000);
+        private Point2f resultPoint = new Point2f(10000, 10000);
         private Point2f oldPoint = new Point2f();
         private bool IsStartWork = false;
         private bool IsX_OK = false;
         private bool IsY_OK = false;
+        private bool IsUseLengthPort = false;
+        private bool IsLengthXY_OK;
 
-  
-        
         public string SnapPicture()
         {
             try
@@ -378,11 +405,11 @@ namespace RobotHand_20260313
                 bitmapSource.Freeze();
                 DeleteObject(hBitmap);
 
-             
+
 
                 if (IsStartWork && IsGetPosition)
                 {
-                
+
                     IsGetPosition = false;
                     // 在子线程中执行
                     Task.Run(() =>
@@ -392,7 +419,7 @@ namespace RobotHand_20260313
                         resultList = resultModel.resultsyolov8;
                         resultPoint = resultModel.point2F;
 
-                        AddLog("X:" + resultModel.point2F.X + "_Y:" + resultModel.point2F.Y);
+                        //AddLog("X:" + resultModel.point2F.X + "_Y:" + resultModel.point2F.Y);
 
                         IsGetPosition = true;
                     });
@@ -410,9 +437,10 @@ namespace RobotHand_20260313
                         ImageView.Source = bitmapSource;
                     }
                 }));
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                AddLog("报错："+ex.Message);
+                AddLog("报错：" + ex.Message);
                 LogHelper.WriteOrderLog(ex.ToString());
             }
         }
@@ -500,10 +528,10 @@ namespace RobotHand_20260313
                 //命令类型 20前进 21 后退
                 // 数据长度 帧数据内容的长度    01
                 //数据内容 是哪个轴移动，00 x轴 01 y轴 02 z轴
-             
+
                 //string data = "200100";
                 string crc = UsingModel.CalculateCrc(data);
-               
+
                 string cmd = "FFE0" + data + crc + "FFE1";
 
 
@@ -525,11 +553,12 @@ namespace RobotHand_20260313
                 if (data.Substring(4, 2) == "00")
                 {
                     cmd = "X轴" + cmd;
-                }else if (data.Substring(4, 2) == "01")
+                }
+                else if (data.Substring(4, 2) == "01")
                 {
                     cmd = "Y轴" + cmd;
                 }
-                else if(data.Substring(4, 2) == "02")
+                else if (data.Substring(4, 2) == "02")
                 {
                     cmd = "Z轴" + cmd;
                 }
@@ -569,19 +598,17 @@ namespace RobotHand_20260313
             }
         }
 
-        private void CLoseRobotPort()
+        private async Task CLoseRobotPort()
         {
 
-            ControlMoveFunc("220100");
-            ControlMoveFunc("220101");
-            ControlMoveFunc("220102");
+            ControlMoveFunc("300103"); await Task.Delay(200);
             serialPortService.Close();
             Ellipse portLight = PortLight;
 
             SolidColorBrush newBrush = new SolidColorBrush(Colors.Red);
             portLight.Fill = newBrush;
             Connection.Content = "连接";
-           
+
             AddLog("串口已断开");
         }
 
@@ -601,8 +628,8 @@ namespace RobotHand_20260313
             {
                 IsStartWork = false;
                 Btn_Start.Content = "开始程序";
-                if(serialPortService.IsOpen)
-                CLoseRobotPort();
+                if (serialPortService.IsOpen)
+                    CLoseRobotPort();
             }
 
         }
@@ -624,6 +651,20 @@ namespace RobotHand_20260313
 
                 // 可选：显示当前状态（如果你有状态栏）
                 // StatusTextBlock.Text = $"Timer间隔已更新为 {newInterval} 毫秒";
+            }
+        }
+
+        private void Btn_LengthMothed_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsUseLengthPort)
+            {
+                IsUseLengthPort = false;
+                Btn_LengthMothed.Content = "匀速模式";
+            }
+            else
+            {
+                IsUseLengthPort = true;
+                Btn_LengthMothed.Content = "长度模式";
             }
         }
     }

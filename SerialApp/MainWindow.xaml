@@ -54,9 +54,15 @@
         <TextBox x:Name="TxtLength" HorizontalAlignment="Left" Margin="532,74,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="47" Height="26"/>
         <TextBlock  HorizontalAlignment="Left" Margin="411,79,0,0" TextWrapping="Wrap" Text="向前移动距离(毫米)：" VerticalAlignment="Top"/>
         <Button Content="切换模式"  HorizontalAlignment="Center" Margin="0,114,0,0" VerticalAlignment="Top" Width="159" Height="28" Click="BtnState_Click"/>
-        <TextBlock HorizontalAlignment="Center" x:Name="BtnState" Margin="0,324,0,0" TextWrapping="Wrap" Text="匀速模式" VerticalAlignment="Top" Foreground="Green" FontSize="22" Height="32" Width="108"/>
+        <TextBlock HorizontalAlignment="Left" x:Name="BtnState" Margin="457,149,0,0" TextWrapping="Wrap" Text="匀速模式" VerticalAlignment="Top" Foreground="Green" FontSize="22" Height="32" Width="108"/>
         <TextBox HorizontalAlignment="Left" Margin="457,217,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="457,192,0,0" TextWrapping="Wrap" Text="串口通信时间间隔：" VerticalAlignment="Top"/>
+        <Button Content="三轴停止" HorizontalAlignment="Left" Margin="827,367,0,0" VerticalAlignment="Top" Width="163" Height="39" Click="XYZ_Stop_Click"/>
+        <TextBox x:Name="X_lengthDirection" HorizontalAlignment="Left" Margin="532,274,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="47" Height="26"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="411,279,0,0" TextWrapping="Wrap" Text="X轴(毫米)：" VerticalAlignment="Top"/>
+        <TextBox x:Name="Y_lengthDirection" HorizontalAlignment="Left" Margin="532,312,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="48" Height="26"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="411,312,0,0" TextWrapping="Wrap" Text="Y轴(毫米)：" VerticalAlignment="Top"/>
+        <Button Content="X轴Y轴一起发送" HorizontalAlignment="Left" Margin="430,362,0,0" VerticalAlignment="Top" Width="162" Height="39" Click="XY_Move_Click"/>
 
     </Grid>
 </Window>

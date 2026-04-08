@@ -352,5 +352,42 @@ namespace SerialApp
                 BtnState.Text = "长度模式";
             }
         }
+
+        private void XYZ_Stop_Click(object sender, RoutedEventArgs e)
+        {
+            ControlMoveFunc("300103");
+        }
+
+        private void XY_Move_Click(object sender, RoutedEventArgs e)
+        {
+            if (serialPortService.IsOpen)
+            {
+
+                    float lenX = float.Parse(X_lengthDirection.Text);
+                    float lenY = float.Parse(Y_lengthDirection.Text);
+                string xstr = "";
+                string ystr = "";
+                if (lenX > 0)
+                {
+                    xstr = "01";
+                }
+                else
+                {
+                    xstr = "02";
+                }
+                if (lenY > 0)
+                {
+                    ystr = "01";
+                }
+                else
+                {
+                    ystr = "02";
+                }
+                xstr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(lenX));
+                ystr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(lenY));
+                ControlMoveFunc("280A" + xstr + ystr);
+
+            }
+        }
     }
 }

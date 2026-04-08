@@ -131,7 +131,7 @@ namespace RobotHand_20260313.Extensions
                 resultModel.resultsyolov8 = pictureRecognitionYolov8.GetODDetResult(src);
                 stopwatch.Stop();
 
-                LogHelper.WriteOrderLog($"获取并裁剪旋转目标检测结果：{stopwatch.ElapsedMilliseconds} 毫秒");            //Console.WriteLine($"获取并裁剪旋转目标检测结果：{stopwatch.ElapsedMilliseconds} 毫秒");
+                //LogHelper.WriteOrderLog($"获取并裁剪旋转目标检测结果：{stopwatch.ElapsedMilliseconds} 毫秒");            //Console.WriteLine($"获取并裁剪旋转目标检测结果：{stopwatch.ElapsedMilliseconds} 毫秒");
 
                 foreach (DetectionResultYolov8OD result in resultModel.resultsyolov8)
                 {

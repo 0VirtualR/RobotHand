@@ -13,5 +13,6 @@ namespace RobotHand_20260313.Extensions
         public static int VideoWidth ;
         public static int VideoHeight ;
         public static int BeiShu = 4;
+        public static bool IsX_LengthOK = false;
     }
 }
