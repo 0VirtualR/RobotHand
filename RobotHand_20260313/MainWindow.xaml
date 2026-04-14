@@ -23,7 +23,7 @@
         <StackPanel Background="#F0F0F0" Orientation="Horizontal" >
             <Button Margin="30,0" Content="开始程序" Name="Btn_Start" Click="Btn_Start_Click"/>
             <Button Margin="30,0" Content="初始化程序" x:Name="Btn_Init" Click="Btn_Init_Click"/>
-            <Button Content="匀速模式" x:Name="Btn_LengthMothed" Click="Btn_LengthMothed_Click"/>
+            <Button Content="长度模式" x:Name="Btn_LengthMothed" Click="Btn_LengthMothed_Click"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -70,8 +70,19 @@
                 </Grid>
                 <TextBlock Text="运行日志：" FontSize="22"  Margin="25,10"/>
                 <ListBox Name="LogBox"   Height="124"   Margin="10"/>
-                <TextBox TextWrapping="Wrap" x:Name="MinRegion" Text="10" Width="46"/>
-                <TextBox TextWrapping="Wrap" x:Name="PortInteral" Text="300" Width="46" TextChanged="PortInteral_TextChanged"/>
+                <WrapPanel>
+                    <TextBlock Text="最小距离：" VerticalAlignment="Center"/><TextBox TextWrapping="Wrap" x:Name="MinRegion" Text="10" Width="46"/>
+                    <TextBlock Text="发送命令间隔时间：" VerticalAlignment="Center"/><TextBox TextWrapping="Wrap" x:Name="PortInteral" Text="300" Width="46" TextChanged="PortInteral_TextChanged"/>
+                    <TextBlock Text="Y轴最终移动距离：" VerticalAlignment="Center"/>
+                    <TextBox TextWrapping="Wrap" x:Name="YMoveLength" Text="70" Width="46"/>
+                    <TextBlock Text="X轴最终移动距离：" VerticalAlignment="Center"/>
+                    <TextBox TextWrapping="Wrap" x:Name="XMoveLength" Text="10" Width="46"/>
+                    <TextBlock Text="x轴：" VerticalAlignment="Center"/>
+                    <TextBox TextWrapping="Wrap" x:Name="Hand_X_length" Text="70" Width="46"/>
+                    <TextBlock Text="Y轴：" VerticalAlignment="Center"/>
+                    <TextBox TextWrapping="Wrap" x:Name="Hand_Y_length" Text="70" Width="46"/>
+                    <Button  Click="Btn_Hand_Move_Click" Content="手动触发"/>
+                </WrapPanel>
             </StackPanel>
         </Grid>
         <TextBlock Grid.Row="2" Name="TimeText"

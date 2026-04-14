@@ -72,28 +72,57 @@ namespace RobotHand_20260313.SerialPorts
                     }
                 }
 
-                // 关闭已打开的端口
-                if (_serialPort?.IsOpen == true)
+                // 如果串口对象已存在
+                if (_serialPort != null)
                 {
-                    _serialPort.Close();
-                    Thread.Sleep(100);
+                    // 如果已经打开，先关闭
+                    if (_serialPort.IsOpen)
+                    {
+                        _serialPort.Close();
+                        Thread.Sleep(100);
+                    }
+
+                    // 【关键优化】检查是否需要重新创建
+                    // 只有当端口名或波特率改变时，才重新创建对象
+                    if (_serialPort.PortName == portName && _serialPort.BaudRate == baudRate)
+                    {
+                        // 复用现有对象，直接打开
+                        _serialPort.Open();
+
+                        // 清空缓冲区
+                        _serialPort.DiscardInBuffer();
+                        _serialPort.DiscardOutBuffer();
+
+                        LogHelper.WriteOrderLog($"复用现有串口对象并打开 {portName} 成功，波特率: {baudRate}");
+                        return true;
+                    }
+                    else
+                    {
+                        // 配置改变了，需要重新创建
+                        _serialPort.DataReceived -= OnDataServiced;  // 先取消事件
+                        _serialPort.Dispose();
+                        _serialPort = null;
+                        LogHelper.WriteOrderLog($"串口配置改变，重新创建对象: {portName}");
+                    }
                 }
 
-                // 重新创建串口实例（重要！）
-                _serialPort?.Dispose();
-                _serialPort = new SerialPort(portName, baudRate)
+                // 只在对象不存在或配置改变时才创建新对象
+                if (_serialPort == null)
                 {
-                    DataBits = 8,
-                    StopBits = StopBits.One,
-                    Parity = Parity.None,
-                    ReadTimeout = 1000,
-                    WriteTimeout = 1000,
-                    ReceivedBytesThreshold = 1  // 关键：收到1字节就触发事件
-                };
+                    _serialPort = new SerialPort(portName, baudRate)
+                    {
+                        DataBits = 8,
+                        StopBits = StopBits.One,
+                        Parity = Parity.None,
+                        ReadTimeout = 1000,
+                        WriteTimeout = 1000,
+                        ReceivedBytesThreshold = 1
+                    };
 
-                // 重新订阅事件（关键！）
-                _serialPort.DataReceived += OnDataServiced;
+                    _serialPort.DataReceived += OnDataServiced;
+                }
 
+                // 打开串口
                 _serialPort.Open();
 
                 // 清空缓冲区

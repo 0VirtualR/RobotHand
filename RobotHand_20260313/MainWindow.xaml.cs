@@ -89,16 +89,16 @@ namespace RobotHand_20260313
             m_StatTimer.Start();
             //定时往机械臂发送命令
             // 从 TextBox 读取初始值，如果解析失败则使用默认值 300
-            double initialInterval = 300; // 默认值
-            if (double.TryParse(PortInteral.Text, out double parsedValue) && parsedValue > 0)
-            {
-                initialInterval = parsedValue;
-            }
+            //double initialInterval = 300; // 默认值
+            //if (double.TryParse(PortInteral.Text, out double parsedValue) && parsedValue > 0)
+            //{
+            //    initialInterval = parsedValue;
+            //}
 
-            _mechanicalArmTimer = new System.Timers.Timer(initialInterval);
-            _mechanicalArmTimer.Elapsed += OnMechanicalArmTimerElapsed;
-            _mechanicalArmTimer.AutoReset = true;
-            _mechanicalArmTimer.Start();
+            //_mechanicalArmTimer = new System.Timers.Timer(initialInterval);
+            //_mechanicalArmTimer.Elapsed += OnMechanicalArmTimerElapsed;
+            //_mechanicalArmTimer.AutoReset = true;
+            //_mechanicalArmTimer.Start();
         }
 
 
@@ -124,138 +124,153 @@ namespace RobotHand_20260313
         }
         private void ProcessMechanicalArmControl()
         {
-            // 检查条件：是否开始工作、串口是否打开、是否收到端口消息、结果点是否有效
-            if (!IsStartWork || !serialPortService.IsOpen ||
-                resultPoint.X == 10000 || resultPoint.Y == 10000)
+            try
             {
-                return;
-            }
-
-            float limit = 10;
-
-            if (IsUseLengthPort&& oldPoint.X == resultPoint.X && -oldPoint.Y==resultPoint.Y)
-            {
-                IsLengthXY_OK = false;
-            }
-            oldPoint = resultPoint;
-            oldPoint.Y = -oldPoint.Y;
-
-            // 计算偏移
-            float offsetX = oldPoint.X - OriginPoint.X;
-            float offsetY = oldPoint.Y - OriginPoint.Y;
-            // 从UI获取限制值（需要在UI线程执行）
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                if (int.TryParse(MinRegion.Text, out int minRegionValue))
+                // 检查条件：是否开始工作、串口是否打开、是否收到端口消息、结果点是否有效
+                if (!IsStartWork || !serialPortService.IsOpen ||
+                    resultPoint.X == 10000 || resultPoint.Y == 10000)
                 {
-                    limit = minRegionValue;
+                    return;
                 }
-            });
+                float limit = 10;
+                int YMove = 70;
+                int XMove = 10;
 
-            AddLog("X:" + oldPoint.X + "_Y:" + oldPoint.Y);
-            if (!IsUseLengthPort)
-            {
-                if (IsX_OK && IsY_OK)
+                Application.Current.Dispatcher.Invoke(() =>
                 {
-                    //string s = FloatToByteConverter.FloatToLittleEndianHex(70);
-                    //ControlMoveFunc("260101" + s);
+                    if (int.TryParse(MinRegion.Text, out int minRegionValue))
+                        limit = minRegionValue;
 
-                    if (Math.Abs(offsetY) >= limit || Math.Abs(offsetX) > limit)
-                    {
-                        IsY_OK = false;
-                        IsX_OK = false;
-                        AddLog("出现新的目标点");
-                    }
-                    else
-                    {
-                        return;
-                    }
+                    if (int.TryParse(YMoveLength.Text, out int yMoveValue))
+                        YMove = yMoveValue;
 
-                }
-                // Y轴控制
-                if (IsX_OK)
+                    if (int.TryParse(XMoveLength.Text, out int xMoveValue))
+                        XMove = xMoveValue;
+                });
+                oldPoint.X = (int)Math.Round(resultPoint.X + XMove);
+                oldPoint.Y = (int)Math.Round(-resultPoint.Y + YMove);
+
+                // 计算偏移
+                float offsetX = oldPoint.X;
+                float offsetY = oldPoint.Y;
+
+
+                //AddLog("X:" + oldPoint.X + "_Y:" + oldPoint.Y);
+                if (!IsUseLengthPort)
                 {
-                    if (!IsY_OK)
+
+                    if (IsX_OK && IsY_OK)
                     {
-                        if (!IsY_OK && Math.Abs(offsetY) < limit)
+                        //string s = FloatToByteConverter.FloatToLittleEndianHex(70);
+                        //ControlMoveFunc("260101" + s);
+
+                        if (Math.Abs(offsetY) >= limit || Math.Abs(offsetX) > limit)
                         {
-                            IsY_OK = true;
-                            ControlMoveFunc("220101");
-                        }
-                        else if (offsetY > 0)
-                        {
-                            ControlMoveFunc("240101");
+                            IsY_OK = false;
+                            IsX_OK = false;
+                            AddLog("出现新的目标点");
                         }
                         else
                         {
-                            ControlMoveFunc("250101");
+                            return;
+                        }
+
+                    }
+                    // Y轴控制
+                    if (IsX_OK)
+                    {
+                        if (!IsY_OK)
+                        {
+                            if (!IsY_OK && Math.Abs(offsetY) < limit)
+                            {
+                                IsY_OK = true;
+                                ControlMoveFunc("220101");
+                            }
+                            else if (offsetY > 0)
+                            {
+                                ControlMoveFunc("240101");
+                            }
+                            else
+                            {
+                                ControlMoveFunc("250101");
+                            }
+                        }
+
+
+                    }
+                    else
+                    {
+                        if (!IsX_OK && Math.Abs(offsetX) < limit)
+                        {
+                            IsX_OK = true;
+                            ControlMoveFunc("220100");
+                        }
+                        else if (offsetX > 0)
+                        {
+                            ControlMoveFunc("240100");
+                        }
+                        else
+                        {
+                            ControlMoveFunc("250100");
                         }
                     }
-
 
                 }
                 else
                 {
-                    if (!IsX_OK && Math.Abs(offsetX) < limit)
+
+                    AddLog(" oldPoint.X =:" + oldPoint.X + " oldPoint.Y=" + +oldPoint.Y);
+                    //if (IsLengthXY_OK && oldPoint.X == OriginPoint.X && oldPoint.Y == OriginPoint.Y && Math.Abs(offsetX )< limit && Math.Abs(offsetY) < limit)
+                    //{
+                    //    IsLengthXY_OK = false;
+                    //    AddLog("下一次长度定位开始了");
+                    //}
+                    if (!IsLengthXY_OK)
                     {
-                        IsX_OK = true;
-                        ControlMoveFunc("220100");
+                        if (Math.Abs(offsetY) > limit || Math.Abs(offsetX) > limit)
+                        {
+                            IsLengthXY_OK = true;
+                            string xstr = "";
+                            string ystr = "";
+                            if (offsetX > 0)
+                            {
+                                xstr = "01";
+                            }
+                            else
+                            {
+                                xstr = "02";
+                            }
+                            if (offsetY > 0)
+                            {
+                                ystr = "01";
+                            }
+                            else
+                            {
+                                ystr = "02";
+                            }
+                            xstr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetX));
+                            ystr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetY));
+                            ControlMoveFunc("280A" + xstr + ystr);
+                        }
+
+
                     }
-                    else if (offsetX > 0)
-                    {
-                        ControlMoveFunc("240100");
-                    }
-                    else
-                    {
-                        ControlMoveFunc("250100");
-                    }
+
+                    OriginPoint = oldPoint;
                 }
 
             }
-            else
+            catch(Exception ex)
             {
-
-                if (Math.Abs(offsetY)< limit && Math.Abs(offsetX) < limit)
-                {
-                 
-                    return;
-                }
-
-
-                if (!IsLengthXY_OK)
-                {
-                    IsLengthXY_OK = true;
-                    string xstr = "";
-                    string ystr = "";
-                    if (offsetX > 0)
-                    {
-                        xstr = "01";
-                    }
-                    else
-                    {
-                        xstr = "02";
-                    }
-                    if (offsetY > 0)
-                    {
-                        ystr = "01";
-                    }
-                    else
-                    {
-                        ystr = "02";
-                    }
-                    xstr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetX));
-                    ystr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetY));
-                    ControlMoveFunc("280A" + xstr + ystr);
-                }
-
+                AddLog(ex.Message);
+                LogHelper.WriteOrderLog(ex.ToString());
             }
-
 
         }
         private void ReceivcePortFunc(string obj)
         {
-            //AddLog("接收到串口返回数据：" + obj);
-            //GobalInfo.IsX_LengthOK = true;
+            AddLog("接收到串口返回数据：" + obj);
+            IsLengthXY_OK = false;
         }
 
         private void InitApp()
@@ -315,8 +330,10 @@ namespace RobotHand_20260313
         private bool IsStartWork = false;
         private bool IsX_OK = false;
         private bool IsY_OK = false;
-        private bool IsUseLengthPort = false;
+        private bool IsUseLengthPort = true;
         private bool IsLengthXY_OK;
+
+        private readonly object modelLock=new object();
 
         public string SnapPicture()
         {
@@ -333,9 +350,18 @@ namespace RobotHand_20260313
 
                         string filename = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "SnapPhoto\\", picName);
 
+                        //Boolean gray = true;
+                        //IntPtr newBuffer = ImageLow.LowInPtr(_image, gray);
+                        //Bitmap Image = new Bitmap(GobalInfo.VideoWidth, GobalInfo.VideoHeight,
+                        //    gray ? GobalInfo.VideoWidth : GobalInfo.VideoWidth * 3,
+                        //    gray ? System.Drawing.Imaging.PixelFormat.Format8bppIndexed : System.Drawing.Imaging.PixelFormat.Format24bppRgb,
+                        //    newBuffer);
+                        //Image.Save(filename);
                         MvApi.CameraImage_SaveAsJpeg(_image, filename, 95);//CameraImage_SaveAsJpeg  CameraImage_SaveAsBmp
-                                                                           //MvApi.CameraImage_SaveAsJpeg(_image, filename);
+                                                                              //MvApi.CameraImage_SaveAsJpeg(_image, filename);
                         MvApi.CameraImage_Destroy(_image);
+                        //MvApi.CameraImage_Destroy(newBuffer);
+
                         //相机提示信息
                         //TextBlock.Text = System.IO.Path.GetFileName(filename) + " 拍照成功";
                         return filename;
@@ -351,6 +377,8 @@ namespace RobotHand_20260313
         }
         [DllImport("gdi32")]
         static extern int DeleteObject(IntPtr o);
+        private int _isInferenceRunning = 0;   // 推理任务运行标志
+        private DateTime _lastProcessFinishTime = DateTime.MinValue;
         private void CameraGrabberFrameCallback(
         IntPtr Grabber,
         IntPtr pFrameBuffer,
@@ -405,38 +433,61 @@ namespace RobotHand_20260313
                 bitmapSource.Freeze();
                 DeleteObject(hBitmap);
 
-
-
-                if (IsStartWork && IsGetPosition)
+                if (IsStartWork && (DateTime.Now - _lastProcessFinishTime).TotalMilliseconds >= 10)
                 {
-
-                    IsGetPosition = false;
-                    // 在子线程中执行
-                    Task.Run(() =>
+                    if (Interlocked.CompareExchange(ref _isInferenceRunning, 1, 0) == 0)
                     {
+                        // ✅ 深拷贝图像（必须！）
+                        BitmapSource clonedBitmap = bitmapSource.Clone();
+                        clonedBitmap.Freeze();
 
-                        ResultModel resultModel = UsingModel.ODRecognition(bitmapSource.ToMat());
-                        resultList = resultModel.resultsyolov8;
-                        resultPoint = resultModel.point2F;
+                        Task.Run(() =>
+                        {
+                            try
+                            {
+                                ResultModel resultModel = UsingModel.ODRecognition(clonedBitmap);
 
-                        //AddLog("X:" + resultModel.point2F.X + "_Y:" + resultModel.point2F.Y);
+                                lock (modelLock)
+                                {
+                                    resultList = resultModel.resultsyolov8;
+                                    resultPoint = resultModel.point2F;
+                                }
 
-                        IsGetPosition = true;
-                    });
+                                ProcessMechanicalArmControl();
+                            }
+                            catch (Exception ex)
+                            {
+                                LogHelper.WriteOrderLog($"推理异常: {ex.Message}");
+                            }
+                            finally  // ✅ 关键：无论成功还是异常，都会执行
+                            {
+                                _lastProcessFinishTime = DateTime.Now;
+                                Interlocked.Exchange(ref _isInferenceRunning, 0);
+                            }
+                        });
+                    }
                 }
-                this.Dispatcher.Invoke(new Action(() =>
+                this.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    if (resultList != null)
+                    DetectionResultYolov8OD[] listCopy = null;
+                    lock (modelLock)
                     {
-                        ImageView.Source = UsingModel.GetRect(bitmapSource, resultList);
-                        resultList = null;
+                        if (resultList != null)
+                        {
+                            listCopy = resultList;
+                            resultList = null;
+                        }
+                    }
+                    if (listCopy != null)
+                    {
+                        ImageView.Source = UsingModel.GetRect(bitmapSource, listCopy);
                     }
                     else
                     {
 
                         ImageView.Source = bitmapSource;
                     }
-                }));
+                }),DispatcherPriority.Render);
             }
             catch (Exception ex)
             {
@@ -563,6 +614,7 @@ namespace RobotHand_20260313
                     cmd = "Z轴" + cmd;
                 }
 
+                LogHelper.WriteOrderLog("发送：" + cmd);
                 AddLog("发送：" + cmd);
             }
             catch (Exception ex)
@@ -666,6 +718,33 @@ namespace RobotHand_20260313
                 IsUseLengthPort = true;
                 Btn_LengthMothed.Content = "长度模式";
             }
+        }
+
+        private void Btn_Hand_Move_Click(object sender, RoutedEventArgs e)
+        {
+            string xstr = "";
+            string ystr = "";
+            int offsetX = int.Parse(Hand_X_length.Text);
+            int offsetY = int.Parse(Hand_Y_length.Text);
+            if (offsetX > 0)
+            {
+                xstr = "01";
+            }
+            else
+            {
+                xstr = "02";
+            }
+            if (offsetY > 0)
+            {
+                ystr = "01";
+            }
+            else
+            {
+                ystr = "02";
+            }
+            xstr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetX));
+            ystr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetY ));
+            ControlMoveFunc("280A" + xstr + ystr);
         }
     }
 }
