@@ -1,52 +1,1888 @@
-[2026-04-14 10:34:07.207]  位置日志信息:
+[2026-04-14 18:44:20.581]  位置日志信息:
 打开串口 COM3 成功，波特率: 115200
 ----------------------------------------------------------------------
 
-[2026-04-14 10:46:27.728]  位置日志信息:
-打开串口 COM3 成功，波特率: 115200
+[2026-04-14 18:44:29.617]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
 ----------------------------------------------------------------------
 
-[2026-04-14 10:47:28.081]  位置日志信息:
-发送：Z轴FFE0280A02AFFD714101DDBC96424B7DFFE1
+[2026-04-14 18:44:29.839]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
 ----------------------------------------------------------------------
 
-[2026-04-14 10:53:58.243]  位置日志信息:
+[2026-04-14 18:44:30.068]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:30.294]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:30.485]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:30.686]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:30.871]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:31.085]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:31.305]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:31.533]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:31.765]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:31.954]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:32.130]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:32.324]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:32.567]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:32.788]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:33.059]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:33.408]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:33.635]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:33.854]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:34.198]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:34.412]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:34.597]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:34.761]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:34.987]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:35.210]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:35.437]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:35.650]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:35.868]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:36.096]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:36.347]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:36.562]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:36.792]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:37.017]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:37.253]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:37.470]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:37.683]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:37.916]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:38.131]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:38.362]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:38.533]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:38.752]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:38.984]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:39.237]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:39.452]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:39.798]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:40.020]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:40.256]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:40.654]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:40.900]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:41.126]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:41.332]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:41.514]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:41.725]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:44:41.933]  位置日志信息:
 发送：FFE0300103C6F7FFE1
 ----------------------------------------------------------------------
 
-[2026-04-14 10:54:20.955]  位置日志信息:
+[2026-04-14 18:46:10.242]  位置日志信息:
 打开串口 COM3 成功，波特率: 115200
 ----------------------------------------------------------------------
 
-[2026-04-14 10:59:42.296]  位置日志信息:
+[2026-04-14 18:47:19.881]  位置日志信息:
 打开串口 COM3 成功，波特率: 115200
 ----------------------------------------------------------------------
 
-[2026-04-14 14:34:06.262]  位置日志信息:
+[2026-04-14 18:47:29.381]  位置日志信息:
+发送：Y轴FFE0280A01000020410100007C42D6D5FFE1
+----------------------------------------------------------------------
+
+[2026-04-14 18:50:59.741]  位置日志信息:
 打开串口 COM3 成功，波特率: 115200
 ----------------------------------------------------------------------
 
-[2026-04-14 14:34:07.864]  位置日志信息:
-发送：Y轴FFE0280A0100008C420100008C429C90FFE1
+[2026-04-14 18:51:02.870]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
 ----------------------------------------------------------------------
 
-[2026-04-14 14:34:13.300]  位置日志信息:
+[2026-04-14 18:51:03.057]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:03.301]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:03.643]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:03.979]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:04.286]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:04.581]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:04.872]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:05.063]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:05.236]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:05.499]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:05.764]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:06.045]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:06.260]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:06.458]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:06.665]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:06.891]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:07.088]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:07.304]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:07.520]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:07.735]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:07.951]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:08.185]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:08.417]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:08.609]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:08.816]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:09.007]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:09.191]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:09.409]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:09.590]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:09.795]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:10.021]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:10.241]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:10.471]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:10.746]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:10.991]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:11.265]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:11.453]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:11.656]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:11.852]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:12.063]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:12.250]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:12.482]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:12.721]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:12.912]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:13.087]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:13.301]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:13.579]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:13.846]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:14.057]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:14.241]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:14.443]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:14.650]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:14.838]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:15.050]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:15.272]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:15.468]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:15.684]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:15.902]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:16.086]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:16.310]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:16.510]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:16.705]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:16.884]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:17.115]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:17.320]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:17.507]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:17.732]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:17.966]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:18.172]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:18.407]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:18.680]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:18.850]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:19.073]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:19.253]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:19.454]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:19.628]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:51:19.883]  位置日志信息:
+Sdcb.OpenVINO.OpenVINOException: general error(-1) Exception from src\inference\src\cpp\infer_request.cpp:121:
+Exception from src\inference\src\cpp\infer_request.cpp:66:
+Exception from src\plugins\intel_cpu\src\infer_request.cpp:365:
+ParameterMismatch: Failed to set tensor for input with precision: f64, since the model input tensor precision is: f32
+
+
+ in file "C:\Users\ZhouJie\source\repos\OpenVINO.NET\src\Sdcb.OpenVINO\TensorIndexer.cs" member "Primary" at line 97 when calling "ov_infer_request_set_input_tensor(_req, (ov_tensor*)value.DangerousGetHandle())"
+   在 Sdcb.OpenVINO.OpenVINOException.ThrowIfFailed(ov_status_e e, String message, String callerMemberName, String callerExpression, String callerFilePath, Nullable`1 callerLineNumber)
+   在 Sdcb.OpenVINO.InputTensorIndexer.set_Primary(Tensor value)
+   在 RobotHand_20260313.Extensions.PictureRecognitionYolov8.GetODDetResult(Mat src) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\DetectionResultYolov8OD.cs:行号 114
+   在 RobotHand_20260313.Extensions.UsingModel.ODRecognition(BitmapSource bitmapSource) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 136
+----------------------------------------------------------------------
+
+[2026-04-14 18:54:36.736]  位置日志信息:
+打开串口 COM3 成功，波特率: 115200
+----------------------------------------------------------------------
+
+[2026-04-14 18:54:45.444]  位置日志信息:
 发送：FFE0300103C6F7FFE1
 ----------------------------------------------------------------------
 
-[2026-04-14 16:32:00.774]  位置日志信息:
+[2026-04-14 18:56:05.344]  位置日志信息:
 打开串口 COM3 成功，波特率: 115200
 ----------------------------------------------------------------------
 
-[2026-04-14 16:36:05.001]  位置日志信息:
-打开串口 COM3 成功，波特率: 115200
-----------------------------------------------------------------------
-
-[2026-04-14 16:40:03.707]  位置日志信息:
-打开串口 COM3 成功，波特率: 115200
-----------------------------------------------------------------------
-
-[2026-04-14 16:40:18.009]  位置日志信息:
-发送：Y轴FFE0280A01000000410100006C42BB50FFE1
+[2026-04-14 18:56:10.372]  位置日志信息:
+发送：Z轴FFE0280A020000884101000040427140FFE1
 ----------------------------------------------------------------------
 

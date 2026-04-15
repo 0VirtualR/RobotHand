@@ -433,7 +433,7 @@ namespace RobotHand_20260313
                 bitmapSource.Freeze();
                 DeleteObject(hBitmap);
 
-                if (IsStartWork && (DateTime.Now - _lastProcessFinishTime).TotalMilliseconds >= 10)
+                if (IsStartWork && (DateTime.Now - _lastProcessFinishTime).TotalMilliseconds >= 300)
                 {
                     if (Interlocked.CompareExchange(ref _isInferenceRunning, 1, 0) == 0)
                     {
