@@ -71,12 +71,12 @@
                 <TextBlock Text="运行日志：" FontSize="22"  Margin="25,10"/>
                 <ListBox Name="LogBox"   Height="124"   Margin="10"/>
                 <WrapPanel>
-                    <TextBlock Text="最小距离：" VerticalAlignment="Center"/><TextBox TextWrapping="Wrap" x:Name="MinRegion" Text="10" Width="46"/>
+                    <TextBlock Text="最小距离：" VerticalAlignment="Center"/><TextBox TextWrapping="Wrap" x:Name="MinRegion" Text="2" Width="46"/>
                     <TextBlock Text="发送命令间隔时间：" VerticalAlignment="Center"/><TextBox TextWrapping="Wrap" x:Name="PortInteral" Text="300" Width="46" TextChanged="PortInteral_TextChanged"/>
                     <TextBlock Text="Y轴最终移动距离：" VerticalAlignment="Center"/>
-                    <TextBox TextWrapping="Wrap" x:Name="YMoveLength" Text="70" Width="46"/>
+                    <TextBox TextWrapping="Wrap" x:Name="YMoveLength" Text="0" Width="46"/>
                     <TextBlock Text="X轴最终移动距离：" VerticalAlignment="Center"/>
-                    <TextBox TextWrapping="Wrap" x:Name="XMoveLength" Text="10" Width="46"/>
+                    <TextBox TextWrapping="Wrap" x:Name="XMoveLength" Text="0" Width="46"/>
                     <TextBlock Text="x轴：" VerticalAlignment="Center"/>
                     <TextBox TextWrapping="Wrap" x:Name="Hand_X_length" Text="70" Width="46"/>
                     <TextBlock Text="Y轴：" VerticalAlignment="Center"/>

@@ -154,7 +154,7 @@ namespace RobotHand_20260313
                 float offsetX = oldPoint.X;
                 float offsetY = oldPoint.Y;
 
-
+                float l = limit;
                 //AddLog("X:" + oldPoint.X + "_Y:" + oldPoint.Y);
                 if (!IsUseLengthPort)
                 {
@@ -227,30 +227,16 @@ namespace RobotHand_20260313
                     //}
                     if (!IsLengthXY_OK)
                     {
-                        if (Math.Abs(offsetY) > limit || Math.Abs(offsetX) > limit)
+                        //if( Math.Abs(offsetY) < limit && Math.Abs(offsetX) < limit)
+                        //{
+                        //    IsLengthXY_OK = true;
+                        //    //到达中心点之后Y轴移动
+                        //    XY_MoveSend(0, YMove);
+                        //}
+                        //else if ( Math.Abs(offsetY) > limit || Math.Abs(offsetX) > limit)
                         {
                             IsLengthXY_OK = true;
-                            string xstr = "";
-                            string ystr = "";
-                            if (offsetX > 0)
-                            {
-                                xstr = "01";
-                            }
-                            else
-                            {
-                                xstr = "02";
-                            }
-                            if (offsetY > 0)
-                            {
-                                ystr = "01";
-                            }
-                            else
-                            {
-                                ystr = "02";
-                            }
-                            xstr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetX));
-                            ystr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetY));
-                            ControlMoveFunc("280A" + xstr + ystr);
+                            XY_MoveSend(offsetX, offsetY);
                         }
 
 
@@ -267,6 +253,32 @@ namespace RobotHand_20260313
             }
 
         }
+
+        private void XY_MoveSend(float offsetX, float offsetY)
+        {
+            string xstr = "";
+            string ystr = "";
+            if (offsetX > 0)
+            {
+                xstr = "01";
+            }
+            else
+            {
+                xstr = "02";
+            }
+            if (offsetY > 0)
+            {
+                ystr = "01";
+            }
+            else
+            {
+                ystr = "02";
+            }
+            xstr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetX));
+            ystr += FloatToByteConverter.FloatToLittleEndianHex(Math.Abs(offsetY));
+            ControlMoveFunc("280A" + xstr + ystr);
+        }
+
         private void ReceivcePortFunc(string obj)
         {
             AddLog("接收到串口返回数据：" + obj);
@@ -332,6 +344,7 @@ namespace RobotHand_20260313
         private bool IsY_OK = false;
         private bool IsUseLengthPort = true;
         private bool IsLengthXY_OK;
+        private bool IsTargetXY_OK=false;
 
         private readonly object modelLock=new object();
 
@@ -675,6 +688,8 @@ namespace RobotHand_20260313
                 }
                 IsStartWork = true;
                 Btn_Start.Content = "停止程序";
+
+                IsLengthXY_OK = false;//使得长度定位的方法可以触发
             }
             else
             {
