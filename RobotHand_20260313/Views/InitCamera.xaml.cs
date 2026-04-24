@@ -128,18 +128,28 @@ namespace RobotHand_20260313.Views
 
             currentFrame = Cv2.ImRead(picPath_cal);
 
-            if (currentFrame.Empty())
+            var (imgPts, startPixel, cameraMatrix, distCoeffs) =UsingModel.LoadCalibration20260416("calibration.json");
+            //var (imgPts, startPixel) = LoadCalibration("calibration.json");
+
+
+            using (Mat dst = new Mat())
             {
-                SnackbarExtensions.Show("读取图像失败。");
-                return;
+                Cv2.Undistort(currentFrame, dst, cameraMatrix, distCoeffs);
+                if (currentFrame.Empty())
+                {
+                    SnackbarExtensions.Show("读取图像失败。");
+                    return;
+                }
+
+                imagePoints.Clear();
+                cameraOrigin = new Point2f();
+                isSelectingPoints = true;
+                isSelectingOrigin = false;
+
+                ShowFrame(dst);
             }
 
-            imagePoints.Clear();
-            cameraOrigin = new Point2f();
-            isSelectingPoints = true;
-            isSelectingOrigin = false;
-
-            ShowFrame(currentFrame);
+          
         }
 
         private void InitCamera_Loaded(object sender, RoutedEventArgs e)
@@ -152,5 +162,8 @@ namespace RobotHand_20260313.Views
     {
         public List<Point2f> ImagePoints { get; set; } = new List<Point2f>();
         public Point2f CameraOrigin { get; set; }
+
+        public List<List<double>> camera_matrix { get; set; }
+        public List<double> dist_coeff { get; set; }
     }
 }

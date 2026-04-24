@@ -133,38 +133,47 @@ namespace RobotHand_20260313.Extensions
                 // ✅ using 确保 src 一定会被释放
                 using (Mat src = bitmapSource.ToMat())
                 {
-                    resultModel.resultsyolov8 = pictureRecognitionYolov8.GetODDetResult(src);
-                    stopwatch.Stop();
+                    var (imgPts, startPixel, cameraMatrix, distCoeffs) = LoadCalibration20260416("calibration.json");
+                    //var (imgPts, startPixel) = LoadCalibration("calibration.json");
 
-                    foreach (DetectionResultYolov8OD result in resultModel.resultsyolov8)
+
+                    using (Mat dst = new Mat())
                     {
-                        OpenCvSharp.Rect rect = result.Rect;
+                        Cv2.Undistort(src, dst, cameraMatrix, distCoeffs);
+                        resultModel.resultsyolov8 = pictureRecognitionYolov8.GetODDetResult(dst);
+                        stopwatch.Stop();
 
-                        int x1 = rect.X;
-                        int y1 = rect.Y;
-                        int x2 = rect.X + rect.Width;
-                        int y2 = rect.Y + rect.Height;
-
-                        //Console.WriteLine( $"[YOLO] class={result.Class}, conf={result.Confidence:F2}, " +$"xyxy=({x1},{y1},{x2},{y2})");
-
-                        // ✅ using 确保每个 roi 都会被释放，即使 continue 也没问题
-                        using (Mat roi = new Mat(src, rect))
+                        foreach (DetectionResultYolov8OD result in resultModel.resultsyolov8)
                         {
-                            Point2f? center = pictureRecognitionYolov8.RefineCenter(roi, x1, y1, debug: true);
+                            OpenCvSharp.Rect rect = result.Rect;
 
-                            if (!center.HasValue)
+                            int x1 = rect.X;
+                            int y1 = rect.Y;
+                            int x2 = rect.X + rect.Width;
+                            int y2 = rect.Y + rect.Height;
+
+                            //Console.WriteLine( $"[YOLO] class={result.Class}, conf={result.Confidence:F2}, " +$"xyxy=({x1},{y1},{x2},{y2})");
+
+                            // ✅ using 确保每个 roi 都会被释放，即使 continue 也没问题
+                            using (Mat roi = new Mat(dst, rect))
                             {
-                                //Console.WriteLine("[WARN] RefineCenter failed.");
-                                continue;  // ✅ using 会自动释放 roi
-                            }
+                                Point2f? center = pictureRecognitionYolov8.RefineCenter(roi, x1, y1, debug: true);
 
-                            Point2f c = center.Value;
-                            Console.WriteLine($"[OK] Final center = ({c.X:F2}, {c.Y:F2})");
+                                if (!center.HasValue)
+                                {
+                                    //Console.WriteLine("[WARN] RefineCenter failed.");
+                                    continue;  // ✅ using 会自动释放 roi
+                                }
 
-                            var (imgPts, startPixel) = LoadCalibration("calibration.json");
+                                Point2f c = center.Value;
+                                Console.WriteLine($"[OK] Final center = ({c.X:F2}, {c.Y:F2})");
 
-                            Point2f[] worldPts =
-                            {
+
+
+
+
+                                Point2f[] worldPts =
+                                {
                         new Point2f(0, 0),
                         new Point2f(8, 0),
                         new Point2f(16, 0),
@@ -176,21 +185,23 @@ namespace RobotHand_20260313.Extensions
                         new Point2f(16, 16)
                     };
 
-                            Point2f centerPixel = new Point2f(c.X, c.Y);
+                                Point2f centerPixel = new Point2f(c.X, c.Y);
 
-                            if (pictureRecognitionYolov8.ComputeDeltaByHomography(
-                                        imgPts,
-                                        worldPts,
-                                        centerPixel,
-                                        startPixel,
-                                        out Point2f deltaMm,
-                                        debug: true))
-                            {
-                                resultModel.point2F.X = deltaMm.X;
-                                resultModel.point2F.Y = deltaMm.Y;
-                            }
-                        } // ✅ roi 自动释放
+                                if (pictureRecognitionYolov8.ComputeDeltaByHomography(
+                                            imgPts,
+                                            worldPts,
+                                            centerPixel,
+                                            startPixel,
+                                            out Point2f deltaMm,
+                                            debug: true))
+                                {
+                                    resultModel.point2F.X = deltaMm.X;
+                                    resultModel.point2F.Y = deltaMm.Y;
+                                }
+                            } // ✅ roi 自动释放
+                        }
                     }
+                   
                 } // ✅ src 自动释放
             }
             catch (Exception ex)
@@ -200,6 +211,51 @@ namespace RobotHand_20260313.Extensions
 
             return resultModel;
         }
+        static public (Point2f[] imgPts, Point2f cameraOrigin, Mat cameraMatrix, Mat distCoeffs) LoadCalibration20260416(string filePath)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                    throw new FileNotFoundException(filePath);
+
+                string json = File.ReadAllText(filePath);
+                var calibData = JsonConvert.DeserializeObject<CalibrationData>(json);
+
+                // 1️⃣ 图像点
+                Point2f[] imgPts = calibData.ImagePoints.ToArray();
+
+                // 2️⃣ 相机原点
+                Point2f cameraOrigin = calibData.CameraOrigin;
+
+                // 3️⃣ 相机内参
+                Mat cameraMatrix = new Mat(3, 3, MatType.CV_64F);
+
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        cameraMatrix.Set(i, j, calibData.camera_matrix[i][j]);
+                    }
+                }
+
+                // 4️⃣ 畸变系数
+                Mat distCoeffs = new Mat(calibData.dist_coeff.Count, 1, MatType.CV_64F);
+
+                for (int i = 0; i < calibData.dist_coeff.Count; i++)
+                {
+                    distCoeffs.Set(i, 0, calibData.dist_coeff[i]);
+                }
+
+                return (imgPts, cameraOrigin, cameraMatrix, distCoeffs);
+            }catch(Exception ex)
+            {
+                LogHelper.WriteOrderLog(ex.ToString());
+                return (new Point2f[0], new Point2f(),null,null);
+            }
+        }
+
+
+
         static (Point2f[] imgPts, Point2f cameraOrigin) LoadCalibration(string filePath)
         {
             try

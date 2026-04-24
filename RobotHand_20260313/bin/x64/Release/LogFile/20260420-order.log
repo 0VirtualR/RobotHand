@@ -1,0 +1,53 @@
+[2026-04-20 10:06:13.169]  位置日志信息:
+打开串口 COM3 成功，波特率: 115200
+----------------------------------------------------------------------
+
+[2026-04-20 10:10:27.658]  位置日志信息:
+打开串口 COM3 成功，波特率: 115200
+----------------------------------------------------------------------
+
+[2026-04-20 10:10:31.168]  位置日志信息:
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing number: ;. Path 'camera_matrix[0][1]', line 4, position 24.
+   在 Newtonsoft.Json.JsonTextReader.ReadNumberCharIntoBuffer(Char currentChar, Int32 charPos)
+   在 Newtonsoft.Json.JsonTextReader.ReadNumberIntoBuffer()
+   在 Newtonsoft.Json.JsonTextReader.ParseNumber(ReadType readType)
+   在 Newtonsoft.Json.JsonTextReader.ReadNumberValue(ReadType readType)
+   在 Newtonsoft.Json.JsonTextReader.ReadAsDouble()
+   在 Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateList(IList list, JsonReader reader, JsonArrayContract contract, JsonProperty containerProperty, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   在 Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   在 Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   在 RobotHand_20260313.Extensions.UsingModel.LoadCalibration20260416(String filePath) 位置 E:\2026年项目____________________接手杨浩\2.点胶机\RobotHand_20260313\RobotHand_20260313\Extensions\UsingModel.cs:行号 218
+----------------------------------------------------------------------
+
+[2026-04-20 10:12:50.496]  位置日志信息:
+打开串口 COM3 成功，波特率: 115200
+----------------------------------------------------------------------
+
+[2026-04-20 10:12:58.846]  位置日志信息:
+发送：Z轴FFE0280A02000040420200006C42F741FFE1
+----------------------------------------------------------------------
+
+[2026-04-20 10:13:04.731]  位置日志信息:
+发送：FFE0300103C6F7FFE1
+----------------------------------------------------------------------
+
+[2026-04-20 10:15:39.988]  位置日志信息:
+打开串口 COM3 成功，波特率: 115200
+----------------------------------------------------------------------
+
+[2026-04-20 10:15:47.292]  位置日志信息:
+发送：Z轴FFE0280A0200008841020000A040AF62FFE1
+----------------------------------------------------------------------
+
